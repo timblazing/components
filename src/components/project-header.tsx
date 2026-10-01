@@ -1,11 +1,11 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 import { ThemeToggle } from "@/components/theme/theme-toggle"
 import { projects } from "@/lib/projects"
-import { cn } from "@/lib/utils"
+import { Select, SelectItem, SelectPopup, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 function GitHubIcon() {
   return (
@@ -17,30 +17,30 @@ function GitHubIcon() {
 
 export function ProjectHeader() {
   const pathname = usePathname()
+  const router = useRouter()
+  const selected = projects.find((project) => project.href === pathname)?.name ?? "fillrate"
+  const items = projects.map(({ name }) => ({ label: name, value: name }))
 
   return (
-    <header className="bg-background/80 sticky top-0 z-30 flex h-14 items-center gap-3 border-b px-4 backdrop-blur-md sm:px-6">
-      <Link href="/" className="rounded-md font-semibold tracking-tight">components</Link>
-      <nav aria-label="Projects" className="flex min-w-0 items-center gap-0.5 overflow-x-auto">
-        {projects.map(({ name, href }) => {
-          const active = pathname === href
-          return (
-            <Link
-              key={name}
-              href={href}
-              aria-current={active ? "page" : undefined}
-              className={cn(
-                "flex h-8 shrink-0 items-center gap-1.5 rounded-md px-2 text-sm transition-colors duration-150 sm:px-2.5",
-                active ? "bg-accent text-foreground font-medium" : "text-muted-foreground hover:text-foreground"
-              )}
-            >
+    <header className="bg-background/80 sticky top-0 z-30 border-b backdrop-blur-md">
+      <div className="mx-auto flex h-14 max-w-[88rem] items-center gap-2 px-4 sm:gap-3 sm:px-6">
+        <Link href="/" className="shrink-0 rounded-md font-semibold tracking-tight">components</Link>
+        <div className="ml-auto flex min-w-0 items-center gap-2 sm:gap-3">
+          <Select items={items} value={selected} onValueChange={(value) => {
+            const project = projects.find((project) => project.name === value)
+            if (project) router.push(project.href)
+          }}>
+            <SelectTrigger aria-label="GitHub repository" size="sm" className="w-32 min-w-0 sm:w-36">
               <GitHubIcon />
-              <span>{name}</span>
-            </Link>
-          )
-        })}
-      </nav>
-      <div className="ml-auto shrink-0"><ThemeToggle /></div>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectPopup align="end" alignItemWithTrigger={false}>
+              {projects.map(({ name }) => <SelectItem key={name} value={name}><span className="flex items-center gap-2"><GitHubIcon />{name}</span></SelectItem>)}
+            </SelectPopup>
+          </Select>
+          <ThemeToggle />
+        </div>
+      </div>
     </header>
   )
 }

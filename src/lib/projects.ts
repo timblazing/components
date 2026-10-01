@@ -1,2 +1,4 @@
-// Add a gallery route here to show another repository in the project navigation.
-export const projects = [{ name: "fillrate", href: "/" }] as const
+export const projects = [
+  { name: "fillrate", href: "/" },
+  { name: "sportscal", href: "/sportscal" },
+] as const

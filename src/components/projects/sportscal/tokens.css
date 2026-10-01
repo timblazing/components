@@ -1,0 +1,46 @@
+.sportscal-theme { --radius: 0.5rem; --border-strong: #d4d4d4; }
+.dark .sportscal-theme {
+  color-scheme: dark;
+  /* Dark-only palette (neutral dashboard palette). Use these semantic tokens,
+     never literal colors, in components. */
+  --background: #000000;
+  --foreground: #ededed;
+  --card: #0a0a0a;
+  --card-foreground: #ededed;
+  --popover: #0a0a0a;
+  --popover-foreground: #ededed;
+  --primary: #ededed;
+  --primary-foreground: #0a0a0a;
+  --secondary: #111111;
+  --secondary-foreground: #ededed;
+  --muted: #111111;
+  --muted-foreground: #a1a1a1;
+  --accent: #1a1a1a;
+  --accent-foreground: #ededed;
+  --destructive: #f87171;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --info: #60a5fa;
+  --border: #262626;
+  --border-strong: #3a3a3a;
+  --input: #262626;
+  --ring: #a1a1a1;
+  --chart-1: #ededed;
+  --chart-2: #a1a1a1;
+  --chart-3: #737373;
+  --chart-4: #525252;
+  --chart-5: #262626;
+  --radius: 0.5rem;
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #ededed;
+  --sidebar-primary: #ededed;
+  --sidebar-primary-foreground: #0a0a0a;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #ededed;
+  --sidebar-border: #262626;
+  --sidebar-ring: #a1a1a1;
+}
+
+
+.sportscal-theme .tabular { font-variant-numeric: tabular-nums; }
+.sportscal-theme button:not(:disabled) { cursor: pointer; }

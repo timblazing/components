@@ -1,0 +1,6 @@
+services:
+  components:
+    image: ghcr.io/timblazing/components:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
