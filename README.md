@@ -2,9 +2,11 @@
 
 Design systems and interactive component galleries for [TimBlazing projects](https://github.com/timblazing). Built with Next.js.
 
+Explore the live galleries at [components.blasingame.dev](https://components.blasingame.dev).
+
 The home page shows the [Fillrate](https://github.com/timblazing/fillrate) design system: foundations, primitives, fulfillment components, charts, maps, and full-screen block previews. Examples use synthetic data and run without the Fillrate backend.
 
-Choose **sportscal** in the header to explore its foundations, Radix primitives, and interactive calendar components at `/sportscal`. Components are copied from [Sportscal](https://github.com/timblazing/sportscal/tree/1f34856a44d47454c9773ac26b5c16139ad305f6); examples use an illustrative schedule.
+Choose **sportscal** in the header to explore its foundations, Radix primitives, and interactive calendar components at [components.blasingame.dev/sportscal](https://components.blasingame.dev/sportscal). Components are copied from [Sportscal](https://github.com/timblazing/sportscal/tree/1f34856a44d47454c9773ac26b5c16139ad305f6); examples use an illustrative schedule.
 
 Project selection is defined in `src/lib/projects.ts`; the Fillrate gallery lives in `src/components/projects/fillrate/`.
 
