@@ -30,7 +30,7 @@ export function ProjectHeader() {
             const project = projects.find((project) => project.name === value)
             if (project) router.push(project.href)
           }}>
-            <SelectTrigger aria-label="GitHub repository" size="sm" className="w-32 min-w-0 sm:w-36">
+            <SelectTrigger aria-label="GitHub repository" size="sm" className="w-32 min-w-0 text-sm sm:w-36">
               <GitHubIcon />
               <SelectValue />
             </SelectTrigger>
