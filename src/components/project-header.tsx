@@ -35,7 +35,7 @@ export function ProjectHeader() {
               <SelectValue />
             </SelectTrigger>
             <SelectPopup align="end" alignItemWithTrigger={false}>
-              {projects.map(({ name }) => <SelectItem key={name} value={name}><span className="flex items-center gap-2"><GitHubIcon />{name}</span></SelectItem>)}
+              {projects.map(({ name }) => <SelectItem key={name} value={name}>{name}</SelectItem>)}
             </SelectPopup>
           </Select>
           <ThemeToggle />
