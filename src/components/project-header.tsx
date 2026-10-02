@@ -38,7 +38,9 @@ export function ProjectHeader() {
               {projects.map(({ name }) => <SelectItem key={name} value={name}>{name}</SelectItem>)}
             </SelectPopup>
           </Select>
-          <ThemeToggle />
+          <div className="hidden sm:block">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </header>

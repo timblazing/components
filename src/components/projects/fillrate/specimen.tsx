@@ -39,7 +39,6 @@ export function Group({
   id,
   index,
   title,
-  description,
   load = "lazy",
   children,
 }: {
@@ -59,7 +58,6 @@ export function Group({
             <span className="text-muted-foreground/50 font-mono tabular-nums">{String(index).padStart(2, "0")}</span>
             {title}
           </h2>
-          <p className="text-muted-foreground max-w-2xl text-sm text-pretty">{description}</p>
         </header>
         {children}
       </section>
