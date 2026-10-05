@@ -100,7 +100,7 @@ export function GalleryShell({ toc, children }: { toc: GalleryToc; children: Rea
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+      if (e.key.toLowerCase() === "k" && (e.metaKey || e.ctrlKey) && e.shiftKey) {
         e.preventDefault()
         setOpen((o) => !o)
       }
@@ -148,8 +148,8 @@ export function GalleryShell({ toc, children }: { toc: GalleryToc; children: Rea
         </CommandDialogPopup>
       </CommandDialog>
 
-      <div className="mx-auto flex max-w-[88rem] gap-12 px-4 pt-14 pb-32 sm:px-6">
-        <nav ref={navRef} className="sticky top-20 hidden h-[calc(100svh-6rem)] w-48 shrink-0 overflow-y-auto pb-8 text-sm no-scrollbar lg:block" aria-label="Gallery sections">
+      <div className="mx-auto flex max-w-[88rem] gap-8 px-5 pt-10 pb-20 sm:px-8">
+        <nav ref={navRef} className="sticky top-20 hidden h-[calc(100svh-6rem)] w-40 shrink-0 overflow-y-auto pb-8 text-sm no-scrollbar xl:block" aria-label="Gallery sections">
           {toc.map((g, gi) => (
             <div key={g.id} className="mb-5">
               <a href={`#${g.id}`} onClick={(e) => onNavClick(e, g.id)} className="text-foreground mb-1.5 flex items-center gap-2 px-2 text-xs font-semibold">

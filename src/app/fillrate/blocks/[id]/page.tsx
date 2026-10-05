@@ -12,7 +12,7 @@ function block(id: string) {
 
 export async function generateMetadata({ params }: PageProps<"/fillrate/blocks/[id]">): Promise<Metadata> {
   const item = block((await params).id)
-  return { title: item ? `${item[1]} · fillrate · components` : "Fillrate" }
+  return { title: item ? `${item[1]} · Fillrate` : "Fillrate" }
 }
 
 // One gallery block filling the viewport, for design review and screenshots.

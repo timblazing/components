@@ -1,25 +1,32 @@
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 
-import { ThemeProvider } from "@/components/theme/theme-provider"
-import { AnchoredToastProvider, ToastProvider } from "@/components/ui/toast"
-import { TooltipProvider } from "@/components/ui/tooltip"
-import "./globals.css"
+import { ThemeProvider } from "@/components/theme/theme-provider";
+import { AnchoredToastProvider, ToastProvider } from "@/components/ui/toast";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { DesignSystemShell } from "@/components/design-system/shell";
+import "./globals.css";
+import "@/styles/system-tokens.css";
+import "@/styles/design-system.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-})
+});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-})
+});
 
 export const metadata: Metadata = {
-  title: "components",
-  description: "Design systems and component galleries for TimBlazing projects.",
-}
+  title: {
+    default: "components",
+    template: "%s · components",
+  },
+  description:
+    "A personal reference for the design system, component libraries, and blocks used in my projects.",
+};
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -29,14 +36,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <ToastProvider>
             <AnchoredToastProvider>
-              <TooltipProvider>{children}</TooltipProvider>
+              <TooltipProvider>
+                <DesignSystemShell>{children}</DesignSystemShell>
+              </TooltipProvider>
             </AnchoredToastProvider>
           </ToastProvider>
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

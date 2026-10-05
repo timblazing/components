@@ -256,6 +256,7 @@ export function Primitives({ onOpenCommand }: { onOpenCommand: () => void }) {
               Command menu
               <KbdGroup>
                 <Kbd>⌘</Kbd>
+                <Kbd>⇧</Kbd>
                 <Kbd>K</Kbd>
               </KbdGroup>
             </span>
@@ -616,6 +617,7 @@ export function Primitives({ onOpenCommand }: { onOpenCommand: () => void }) {
                   <Search /> Open command menu
                   <KbdGroup>
                     <Kbd>⌘</Kbd>
+                    <Kbd>⇧</Kbd>
                     <Kbd>K</Kbd>
                   </KbdGroup>
                 </Button>

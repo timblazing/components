@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "bun run reference:sync && next dev",
+    "build": "bun run reference:sync && next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "next typegen && tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit",
+    "reference:sync": "bun scripts/sync-design-reference.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

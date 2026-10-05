@@ -1,18 +1,29 @@
 # components
 
-Design systems and interactive component galleries for [TimBlazing projects](https://github.com/timblazing). Built with Next.js.
+My personal development reference and public showcase for the design system used in my projects. Built with Next.js.
 
-Explore the live galleries at [components.blasingame.dev](https://components.blasingame.dev).
+- `/` — Foundations: color, typography, spacing, shape, and motion.
+- `/components` — references and attribution for shadcn/ui, coss ui, blocks.so, and mapcn.
+- `/blocks` — composed interfaces from my projects.
 
-The home page shows the [Fillrate](https://github.com/timblazing/fillrate) design system: foundations, primitives, fulfillment components, charts, maps, and full-screen block previews. Examples use synthetic data and run without the Fillrate backend.
+Appearance follows the user's system theme. Shared tokens are in `src/styles/system-tokens.css`; design notes are in [docs/design-system.md](docs/design-system.md).
 
-Choose **sportscal** in the header to explore its foundations, Radix primitives, and interactive calendar components at [components.blasingame.dev/sportscal](https://components.blasingame.dev/sportscal). Components are copied from [Sportscal](https://github.com/timblazing/sportscal/tree/1f34856a44d47454c9773ac26b5c16139ad305f6); examples use an illustrative schedule.
+## Development
 
-Choose **sleeper-fantasy-dashboard** for its foundations and primitives at [components.blasingame.dev/sleeper-fantasy-dashboard](https://components.blasingame.dev/sleeper-fantasy-dashboard). Tokens and source components come from [Sleeper Fantasy Dashboard](https://github.com/timblazing/sleeper-fantasy-dashboard/tree/45a18eb2f82eaa838fc5a903087d08db921a3529); examples use illustrative league data.
+```sh
+bun install
+bun run dev
+```
 
-Project selection is defined in `src/lib/projects.ts`; the Fillrate gallery lives in `src/components/projects/fillrate/`.
+If port 3000 is occupied, use `bun run dev -- --port 3001`.
 
-Extracted from Fillrate commit [`8027888`](https://github.com/timblazing/fillrate/tree/8027888a90ea6f4f45b7abcc4f81152dd1476624). The gallery retains its original component implementations and synthetic fixtures; only the app shell, routes, and contract type imports were adapted.
+```sh
+bun run lint
+bun run typecheck
+bun run build
+```
+
+The original source galleries and synthetic fixtures remain under `src/components/projects/`. Full-screen Fillrate blocks remain at `/fillrate/blocks/[id]`.
 
 ## Deploy
 

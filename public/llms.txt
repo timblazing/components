@@ -1,0 +1,12 @@
+# components
+
+> Personal design system reference and project showcase.
+
+- [Foundations](/): Color, typography, spacing, shape, and motion.
+- [Components](/components): Library references and attribution.
+- [Blocks](/blocks): Composed project interfaces.
+- [Design notes](/design-system.md): Repository reference.
+
+Shared tokens: src/styles/system-tokens.css
+Local primitives: src/components/ui/
+Appearance follows the system preference.
