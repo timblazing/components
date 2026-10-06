@@ -8,13 +8,16 @@ export const metadata = { title: "Blocks" };
 
 export default async function BlocksPage() {
   const ids = Object.keys(blocks) as BlockId[];
-  const sourceById = {
-    "landing-page": await readFile(
-      path.join(process.cwd(), "src/components/blocks/landing-page.tsx"),
-      "utf8",
+  const sourceFilesById = await Promise.all(
+    ids.map(async (id) =>
+      Promise.all(
+        blocks[id].files.map(async (file) => ({
+          path: file,
+          content: await readFile(path.join(process.cwd(), file), "utf8"),
+        })),
+      ),
     ),
-  };
-  const sources = ids.map((id) => sourceById[id]);
+  );
   return (
     <>
       <PageHeader
@@ -27,9 +30,8 @@ export default async function BlocksPage() {
             key={id}
             id={id}
             title={blocks[id].title}
-            description={blocks[id].description}
-            file={blocks[id].file}
-            source={sources[i]}
+            installCommand={blocks[id].installCommand}
+            sourceFiles={sourceFilesById[i]}
           />
         ))}
       </div>
