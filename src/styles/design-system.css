@@ -61,6 +61,7 @@
   height: 20px;
   flex-shrink: 0;
 }
+.system-navbar-end,
 .system-navbar nav {
   display: flex;
   align-items: center;
@@ -70,6 +71,73 @@
   height: 16px;
   align-self: center;
   margin-inline: 8px;
+}
+/* Phones: a Menu button opens the links in a left sheet. */
+.navbar-menu-trigger {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  margin-left: -8px;
+  padding-inline: 8px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground);
+  transition: background-color 150ms;
+}
+.navbar-menu-trigger:hover {
+  background: var(--muted);
+}
+.navbar-menu-trigger svg {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 639px) {
+  .navbar-menu-trigger {
+    display: flex;
+  }
+  .system-navbar > .system-brand,
+  .system-navbar nav {
+    display: none;
+  }
+}
+.mobile-nav {
+  gap: 32px;
+  padding: 20px 24px 32px;
+  box-shadow: none !important;
+}
+.mobile-nav .system-brand {
+  align-self: flex-start;
+  height: 32px;
+}
+.mobile-nav nav {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-nav-link {
+  padding-block: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--muted-foreground);
+  transition: color 150ms;
+}
+.mobile-nav-link:hover,
+.mobile-nav-link.is-active {
+  color: var(--foreground);
+}
+.mobile-nav-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  font-size: 14px;
+  color: var(--muted-foreground);
+  transition: color 150ms;
+}
+.mobile-nav-github:hover {
+  color: var(--foreground);
 }
 .navbar-link {
   display: flex;
@@ -137,7 +205,7 @@
   justify-content: space-between;
   gap: 16px 24px;
   flex-wrap: wrap;
-  padding-block: 36px;
+  padding-block: 20px;
   font-size: 12px;
   color: var(--muted-foreground);
 }
@@ -145,11 +213,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-}
-.system-footer-brand .logo-mark {
-  width: 16px;
-  height: 16px;
-  color: var(--foreground);
 }
 .system-footer nav {
   display: flex;
@@ -213,6 +276,7 @@
   padding-bottom: 80px;
 }
 .ds-page-header h1 {
+  font-family: var(--font-display);
   font-size: clamp(48px, 5.4vw, 72px);
   line-height: 1;
   font-weight: 500;
@@ -247,6 +311,7 @@
   align-items: center;
 }
 .ds-hero h1 {
+  font-family: var(--font-display);
   max-width: 14ch;
   font-size: clamp(44px, min(8vw, 13vh), 104px);
   line-height: 1;
@@ -625,6 +690,7 @@
   color: var(--muted-foreground);
 }
 .type-display {
+  font-family: var(--font-display);
   font-size: clamp(44px, 5.4vw, 72px);
   font-weight: 500;
   letter-spacing: -0.05em;
@@ -787,52 +853,6 @@
   margin-top: 32px;
 }
 
-/* Project block reference. */
-.block-reference {
-  border-top: 1px solid var(--border);
-}
-.block-entry {
-  border-bottom: 1px solid var(--border);
-}
-.block-entry-toggle {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding-block: 20px;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: left;
-  cursor: pointer;
-  transition: color 150ms;
-}
-.block-entry-toggle:hover {
-  color: color-mix(in srgb, var(--foreground) 80%, transparent);
-}
-.block-entry-description {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  padding-bottom: 24px;
-}
-.block-entry-description p {
-  max-width: 576px;
-  font-size: 14px;
-  line-height: 1.625;
-  color: var(--muted-foreground);
-}
-.block-entry-description a {
-  flex-shrink: 0;
-}
-.block-entry-preview {
-  overflow: auto;
-  margin-bottom: 32px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
-
 /* Block viewer: toolbar over a framed, resizable preview. */
 .block-viewer {
   scroll-margin-top: calc(var(--header-height) + 16px);
@@ -904,7 +924,7 @@
   width: auto;
   padding-inline: 12px;
   border: 1px solid var(--border);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
 }
 .block-viewer-tools .is-install {
@@ -1039,7 +1059,7 @@
 }
 .block-viewer-code pre {
   padding: 20px 24px;
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   line-height: 1.7;
   tab-size: 2;
@@ -1085,16 +1105,36 @@
   align-items: center;
   gap: 8px;
 }
+.design-files-select {
+  display: none !important;
+}
 .design-files-code {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   max-height: 480px;
   overflow: auto;
   padding: 20px 24px;
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   line-height: 1.7;
   tab-size: 2;
+}
+/* Phones: a select replaces the tabs, which don't fit. */
+@media (max-width: 639px) {
+  .design-files-toolbar > [data-slot="tabs"] {
+    display: none;
+  }
+  .design-files-select {
+    display: flex !important;
+    flex: 1 1 100%;
+  }
+  .design-files-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .design-files-code {
+    padding: 16px;
+  }
 }
 
 .ds-page-header .ds-actions {

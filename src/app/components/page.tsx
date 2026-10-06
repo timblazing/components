@@ -9,7 +9,7 @@ export const metadata = { title: "Components" };
 const libraries = [
   {
     name: "shadcn/ui",
-    role: "Primary",
+    role: "Core",
     description: "The starting point for core UI components in my projects.",
     detail:
       "Accessible, composable components with source code I can adapt to the shared design system.",
@@ -18,6 +18,18 @@ const libraries = [
     url: "https://ui.shadcn.com",
     reference: "https://ui.shadcn.com/docs/components",
     source: "https://github.com/shadcn-ui/ui",
+  },
+  {
+    name: "Base UI",
+    role: "Core",
+    description: "The unstyled, accessible primitives underneath my components.",
+    detail:
+      "shadcn/ui components are installed in their Base UI variant, so behavior, focus, and keyboard handling come from one library.",
+    use: "Navigation menus, menus, popovers, dialogs, selects, and form controls.",
+    credit: "MUI & the Base UI team",
+    url: "https://base-ui.com",
+    reference: "https://base-ui.com/react/overview/quick-start",
+    source: "https://github.com/mui/base-ui",
   },
   {
     name: "coss ui",
@@ -64,7 +76,7 @@ export default function ComponentsPage() {
     <>
       <PageHeader
         title="Components"
-        description="The component libraries I use and reference when building my projects, with credit to the people who make them."
+        description="shadcn/ui and Base UI are the core. These are the libraries I build on and reference, with credit to the people who make them."
       />
       {libraries.map((library) => (
         <Section key={library.name} title={library.name}>

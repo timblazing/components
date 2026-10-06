@@ -1,7 +1,8 @@
 /* Tailwind v4. Import after `@import "tailwindcss"` and load variables.css. */
 @theme inline {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-display: "DM Sans", "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-mono: Menlo, ui-monospace, SFMono-Regular, monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

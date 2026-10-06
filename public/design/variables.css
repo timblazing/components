@@ -60,8 +60,9 @@
 }
 
 :root {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-display: "DM Sans", "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-mono: Menlo, ui-monospace, SFMono-Regular, monospace;
   --container: 1288px;
   --gutter: 24px;
   --header-height: 60px;

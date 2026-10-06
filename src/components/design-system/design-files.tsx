@@ -4,6 +4,13 @@ import { useState } from "react";
 import { Download } from "lucide-react";
 import { CopyButton } from "@/components/design-system/copy-button";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectItem,
+  SelectPopup,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Tabs, TabsList, TabsTab } from "@/components/ui/tabs";
 
 export type DesignFile = {
@@ -39,6 +46,22 @@ export function DesignFiles({ files }: { files: DesignFile[] }) {
             ))}
           </TabsList>
         </Tabs>
+        <Select
+          items={files.map((f) => ({ value: f.id, label: f.label }))}
+          value={id}
+          onValueChange={(v) => v && setId(v)}
+        >
+          <SelectTrigger className="design-files-select" aria-label="Design file">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectPopup>
+            {files.map((f) => (
+              <SelectItem key={f.id} value={f.id}>
+                {f.label}
+              </SelectItem>
+            ))}
+          </SelectPopup>
+        </Select>
         <div className="design-files-actions">
           <CopyButton text={file.content} label="Copy" />
           <Button variant="outline" size="sm" onClick={download}>

@@ -3,23 +3,30 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu } from "lucide-react";
 import { Github } from "@/components/design-system/github-icon";
 import { Separator } from "@/components/ui/separator";
-import { LogoMark } from "@/components/design-system/logo-mark";
+import {
+  Sheet,
+  SheetPopup,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-const GITHUB_URL = "https://github.com/timblazing/components";
+const GITHUB_URL = "https://github.com/timblazing";
 
 const links = [
   { title: "Foundations", href: "/foundations" },
   { title: "Components", href: "/components" },
   { title: "Blocks", href: "/blocks" },
-  { title: "Projects", href: "/projects" },
 ] as const;
 
 export function DesignSystemShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -28,7 +35,10 @@ export function DesignSystemShell({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (pathname.startsWith("/fillrate/blocks/") || pathname.startsWith("/blocks/")) {
+  if (
+    pathname.startsWith("/fillrate/blocks/") ||
+    pathname.startsWith("/blocks/")
+  ) {
     return children;
   }
   return (
@@ -38,34 +48,75 @@ export function DesignSystemShell({ children }: { children: React.ReactNode }) {
       </a>
       <header className={cn("system-header", scrolled && "is-scrolled")}>
         <div className="ds-container system-navbar">
+          <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+            <SheetTrigger className="navbar-menu-trigger">
+              <Menu aria-hidden="true" />
+              Menu
+            </SheetTrigger>
+            <SheetPopup side="left" className="mobile-nav" showCloseButton>
+              <SheetTitle className="sr-only">Navigation</SheetTitle>
+              <Link href="/" className="system-brand" onClick={closeMenu}>
+                blasingame.dev
+              </Link>
+              <nav aria-label="Mobile navigation">
+                {[{ title: "Home", href: "/" }, ...links].map(
+                  ({ title, href }) => {
+                    const active = pathname === href;
+                    return (
+                      <Link
+                        key={href}
+                        href={href}
+                        onClick={closeMenu}
+                        className={cn("mobile-nav-link", active && "is-active")}
+                        aria-current={active ? "page" : undefined}
+                      >
+                        {title}
+                      </Link>
+                    );
+                  },
+                )}
+              </nav>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mobile-nav-github"
+              >
+                <Github size={16} />
+                GitHub
+              </a>
+            </SheetPopup>
+          </Sheet>
           <Link href="/" className="system-brand">
-            components
+            blasingame.dev
           </Link>
-          <nav aria-label="Main navigation">
-            {links.map(({ title, href }) => {
-              const active = pathname === href;
-              return (
-                <Link
-                  key={href}
-                  href={href}
-                  className={cn("navbar-link", active && "is-active")}
-                  aria-current={active ? "page" : undefined}
-                >
-                  {title}
-                </Link>
-              );
-            })}
-            <Separator orientation="vertical" />
+          <div className="system-navbar-end">
+            <nav aria-label="Main navigation">
+              {links.map(({ title, href }) => {
+                const active = pathname === href;
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={cn("navbar-link", active && "is-active")}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    {title}
+                  </Link>
+                );
+              })}
+              <Separator orientation="vertical" />
+            </nav>
             <a
               href={GITHUB_URL}
               target="_blank"
               rel="noreferrer"
-              aria-label="components on GitHub"
+              aria-label="timblazing on GitHub"
               className="icon-link"
             >
               <Github size={16} />
             </a>
-          </nav>
+          </div>
         </div>
       </header>
       <main id="main-content" className="system-main" tabIndex={-1}>
@@ -73,10 +124,7 @@ export function DesignSystemShell({ children }: { children: React.ReactNode }) {
       </main>
       <footer className="system-footer">
         <div className="ds-container system-footer-inner">
-          <div className="system-footer-brand">
-            <LogoMark />
-            <span>MIT licensed</span>
-          </div>
+          <span className="system-footer-brand">blasingame.dev</span>
           <nav aria-label="Footer">
             <a href={GITHUB_URL} target="_blank" rel="noreferrer">
               GitHub

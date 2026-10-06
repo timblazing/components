@@ -25,8 +25,9 @@ const variables = `/* Generated from src/styles/system-tokens.css. Do not edit. 
 ${css.trim()}
 
 :root {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-display: "DM Sans", "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-mono: Menlo, ui-monospace, SFMono-Regular, monospace;
   --container: 1288px;
   --gutter: 24px;
   --header-height: 60px;
@@ -44,11 +45,12 @@ const color = (tokens) =>
 const tokens = {
   color: { light: color(light), dark: color(dark) },
   fontFamily: {
-    sans: { $value: "DM Sans", $type: "fontFamily" },
-    mono: { $value: "Geist Mono", $type: "fontFamily" },
+    display: { $value: "DM Sans", $type: "fontFamily" },
+    sans: { $value: "SF Pro", $type: "fontFamily" },
+    mono: { $value: "Menlo", $type: "fontFamily" },
   },
   typography: {
-    display: { fontSize: "48–72px", fontWeight: 500, lineHeight: 1, letterSpacing: "-0.05em" },
+    display: { fontFamily: "{fontFamily.display}", fontSize: "48–72px", fontWeight: 500, lineHeight: 1, letterSpacing: "-0.05em" },
     heading: { fontSize: "36px", fontWeight: 500, lineHeight: 1.1, letterSpacing: "-0.04em" },
     lead: { fontSize: "26px", fontWeight: 500, lineHeight: 1.25, letterSpacing: "-0.025em" },
     title: { fontSize: "20px", fontWeight: 500, letterSpacing: "-0.015em" },
