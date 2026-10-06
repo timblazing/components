@@ -5,6 +5,7 @@ import { Tabs, TabsList, TabsTab } from "@/components/ui/tabs";
 import {
   Check,
   Copy,
+  Download,
   ExternalLink,
   Monitor,
   RotateCw,
@@ -38,11 +39,21 @@ export function BlockViewer({
   const [viewport, setViewport] = useState<Viewport>("desktop");
   const [reload, setReload] = useState(0);
   const [copied, setCopied] = useState(false);
+  const [installCopied, setInstallCopied] = useState(false);
 
   const copy = async () => {
     await navigator.clipboard.writeText(source);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
+  };
+
+  const copyInstallCommand = async () => {
+    const itemUrl = `${window.location.origin}/r/${id}.json`;
+    await navigator.clipboard.writeText(
+      `bunx --bun shadcn@latest add ${itemUrl}`,
+    );
+    setInstallCopied(true);
+    setTimeout(() => setInstallCopied(false), 1800);
   };
 
   return (
@@ -56,6 +67,15 @@ export function BlockViewer({
         </Tabs>
         <p className="block-viewer-title">{description}</p>
         <div className="block-viewer-tools">
+          <button
+            className="is-command is-install"
+            onClick={copyInstallCommand}
+            aria-label={`Copy shadcn install command for ${title}`}
+            title="Copy shadcn install command"
+          >
+            {installCopied ? <Check size={14} aria-hidden="true" /> : <Download size={14} aria-hidden="true" />}
+            <span>{installCopied ? "Copied" : "Install"}</span>
+          </button>
           {tab === "preview" ? (
             <>
               {viewports.map(({ id: v, label, Icon }) => (

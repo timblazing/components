@@ -1,16 +1,14 @@
 import { LandingPage } from "@/components/blocks/landing-page";
+import { blockMetadata, type BlockId } from "@/components/blocks/metadata";
 
 export const blocks = {
   "landing-page": {
-    title: "Landing Page",
-    description:
-      "A marketing page: hero, product frame, features, split section, call to action, and footer.",
     Block: LandingPage,
-    file: "src/components/blocks/landing-page.tsx",
+    ...blockMetadata["landing-page"],
   },
 } as const;
 
-export type BlockId = keyof typeof blocks;
+export type { BlockId };
 
 export function isBlockId(id: string): id is BlockId {
   return id in blocks;

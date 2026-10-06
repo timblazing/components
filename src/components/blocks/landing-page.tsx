@@ -114,9 +114,9 @@ export function LandingPage() {
             </div>
             <div className="border-border bg-card mt-16 w-full overflow-hidden rounded-2xl border text-left">
               <div className="border-border flex h-10 items-center gap-1.5 border-b px-4">
-                <span className="bg-border-strong size-2.5 rounded-full" />
-                <span className="bg-border-strong size-2.5 rounded-full" />
-                <span className="bg-border-strong size-2.5 rounded-full" />
+                <span className="bg-border size-2.5 rounded-full" />
+                <span className="bg-border size-2.5 rounded-full" />
+                <span className="bg-border size-2.5 rounded-full" />
               </div>
               <div className="grid min-h-72 grid-cols-[10rem_1fr] sm:grid-cols-[14rem_1fr]">
                 <div className="border-border space-y-2 border-r p-4">
@@ -185,7 +185,7 @@ export function LandingPage() {
             <div className="border-border bg-card rounded-xl border p-5">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium">Add onboarding flow</p>
-                <span className="text-success border-success/30 rounded-full border px-2 py-0.5 text-[11px]">
+                <span className="text-primary border-primary/30 rounded-full border px-2 py-0.5 text-[11px]">
                   Ready
                 </span>
               </div>
@@ -193,7 +193,7 @@ export function LandingPage() {
                 {["app/routes/index.tsx", "app/routes/layout.tsx", "app/styles.css"].map((f) => (
                   <div key={f} className="text-muted-foreground flex justify-between px-3 py-2.5">
                     <span className="font-mono">{f}</span>
-                    <span className="text-success">+12</span>
+                    <span className="text-primary">+12</span>
                   </div>
                 ))}
               </div>
@@ -214,7 +214,7 @@ export function LandingPage() {
               <ul className="mt-6 space-y-2.5">
                 {points.map((p) => (
                   <li key={p} className="text-muted-foreground flex items-center gap-2.5 text-sm">
-                    <Check className="text-success size-4" aria-hidden="true" />
+                    <Check className="text-primary size-4" aria-hidden="true" />
                     {p}
                   </li>
                 ))}

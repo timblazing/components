@@ -897,6 +897,20 @@
   font-family: var(--font-geist-mono), monospace;
   font-size: 12px;
 }
+.block-viewer-tools .is-install {
+  display: inline-flex;
+  width: auto;
+  gap: 7px;
+  border-color: var(--border-strong);
+  padding-inline: 10px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 550;
+  color: var(--foreground);
+}
+.block-viewer-tools .is-install:hover {
+  background: var(--muted);
+}
 .block-viewer-frame {
   border: 1px solid var(--border);
   border-radius: 16px;

@@ -8,14 +8,18 @@ export const metadata = { title: "Blocks" };
 
 export default async function BlocksPage() {
   const ids = Object.keys(blocks) as BlockId[];
-  const sources = await Promise.all(
-    ids.map((id) => readFile(path.join(process.cwd(), blocks[id].file), "utf8")),
-  );
+  const sourceById = {
+    "landing-page": await readFile(
+      path.join(process.cwd(), "src/components/blocks/landing-page.tsx"),
+      "utf8",
+    ),
+  };
+  const sources = ids.map((id) => sourceById[id]);
   return (
     <>
       <PageHeader
         title="Blocks"
-        description="Generic, composed layouts built on my foundations. Preview, resize, copy the source, or open one full screen."
+        description="Generic, composed layouts built on my foundations."
       />
       <div className="ds-container" style={{ paddingBottom: 96, display: "grid", gap: 64 }}>
         {ids.map((id, i) => (
