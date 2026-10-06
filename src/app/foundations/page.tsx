@@ -6,6 +6,7 @@ import {
   Section,
   TextLink,
 } from "@/components/design-system/layout";
+import { DesignFilesSection } from "@/components/design-system/design-files-section";
 import { colors } from "@/lib/design-system";
 
 export const metadata = { title: "Foundations" };
@@ -18,8 +19,8 @@ const semanticColors = [
 ];
 
 const typeScale = [
-  { name: "Display", spec: "48–72 / 600 / −0.06em", className: "type-display", sample: "Every detail matters.", usage: "One per page. The main statement." },
-  { name: "Heading", spec: "36 / 500 / −0.025em", className: "type-heading", sample: "Built to be used.", usage: "Section titles in the left column." },
+  { name: "Display", spec: "48–72 / 500 / −0.05em", className: "type-display", sample: "Every detail matters.", usage: "One per page. The main statement." },
+  { name: "Heading", spec: "36 / 500 / −0.04em", className: "type-heading", sample: "Built to be used.", usage: "Section titles in the left column." },
   { name: "Lead", spec: "26 / 500 / −0.025em", className: "type-lead", sample: "Your calendar, always current.", usage: "Opening statement of a section." },
   { name: "Title", spec: "20 / 500", className: "type-title", sample: "Pick a team to get started", usage: "Cards, dialogs, and list items." },
   { name: "Body", spec: "16 / 400 / 1.6", className: "type-body", sample: "Pick a team and subscribe in the calendar app you already use.", usage: "Page descriptions and questions. 14px inside panels." },
@@ -27,10 +28,10 @@ const typeScale = [
 ];
 
 const shapes = [
-  { name: "Control", radius: "8px", token: "rounded-lg", description: "Buttons, inputs, small surfaces." },
+  { name: "Control", radius: "8px", token: "rounded-lg", description: "Buttons, nav links, tabs, inputs, and small surfaces." },
   { name: "Panel", radius: "12px", token: "rounded-xl", description: "Cards, dialogs, grouped content." },
   { name: "Feature", radius: "16px", token: "rounded-2xl", description: "Showcase surfaces and demos." },
-  { name: "Pill", radius: "999px", token: "rounded-full", description: "Primary actions, search, and icon buttons." },
+  { name: "Pill", radius: "999px", token: "rounded-full", description: "Hero and call-to-action buttons, badges, avatars, switches, and status dots. Not nav links, tabs, or buttons inside panels." },
 ];
 
 const motion = [
@@ -42,8 +43,11 @@ const motion = [
 
 const patterns = [
   { name: "Page header", code: "<PageHeader>", description: "Display title and 18px muted description over a masked dot field. One per page." },
-  { name: "Section", code: "<Section>", description: "Heading in a 0.7fr column, content in 1.3fr, 128px of vertical rhythm, and a single rule between sections. Stacks below 768px." },
+  { name: "Section", code: "<Section>", description: "Heading in a 0.7fr column, content in 1.3fr, 96px of vertical rhythm, and an edge-to-edge rule between sections. Stacks below 768px." },
   { name: "Lead", code: "<Lead strong=…>", description: "Open a section with one strong sentence in foreground, then let the rest fall back to muted. Follow with 14px body text." },
+  { name: "Header", code: "<DesignSystemShell>", description: "Sticky, 60px, wordmark only with no logo. Page links, a vertical separator, then GitHub. The bottom rule and frosted background appear only after the page scrolls; at the top there is no border." },
+  { name: "Tabs", code: "<Tabs>", description: "Always the shared Tabs component: an 8px track on the subtle fill with a sliding indicator. Used for Preview and Code, and for the design files below." },
+  { name: "Footer", code: "<DesignSystemShell>", description: "An edge-to-edge top rule. Logo mark and copyright with license on the left, page links on the right." },
   { name: "Disclosure", code: "<details className=\"ds-disclosure\">", description: "Native details and summary. The plus turns 45° when open, and the answer eases in. This list is one." },
 ];
 
@@ -56,7 +60,7 @@ export default function FoundationsPage() {
       />
 
       <Section id="color" title="Color">
-        <Lead strong="Black sets the stage.">
+        <Lead strong="Quiet surfaces set the stage.">
           Surfaces add depth, borders add structure, and color earns its place
           by meaning something.
         </Lead>
@@ -96,7 +100,7 @@ export default function FoundationsPage() {
       </Section>
 
       <Section id="typography" title="Typography">
-        <Lead strong="Geist carries everything.">
+        <Lead strong="DM Sans carries everything.">
           A display that leans in, quiet medium-weight headings, and muted text
           for anything supporting.
         </Lead>
@@ -148,19 +152,19 @@ export default function FoundationsPage() {
           </div>
           <div>
             <dt>Between sections</dt>
-            <dd>96–128px, with a single border rule. Each idea gets room.</dd>
+            <dd>96px, with a full-width border rule. Each idea gets room.</dd>
           </div>
           <div>
             <dt>Page width</dt>
-            <dd>1280px max, 24px gutters, 16px on phones.</dd>
+            <dd>1288px max (1240px of content), 24px gutters, 16px on phones.</dd>
           </div>
         </dl>
       </Section>
 
       <Section id="shape" title="Shape">
         <Lead strong="Soft edges, fine borders.">
-          Elevation comes from the surface and a strong border, not from
-          shadows.
+          Like shadcn/ui, 8px is the default and a pill is the exception.
+          Elevation comes from the surface and a border, not from shadows.
         </Lead>
         <div className="shape-grid">
           {shapes.map((s) => (
@@ -193,15 +197,16 @@ export default function FoundationsPage() {
 
       <Section id="patterns" title="Patterns">
         <Lead strong="Pages are built from a few pieces.">
-          Every page on this site uses them. They come from the SportsCal
-          landing page.
+          Every page on this site uses them. They started with the SportsCal
+          landing page and now follow the T3 Code site: tall chrome, a wide
+          column, and rules that run edge to edge.
         </Lead>
         <div className="pattern-demo">
           <div className="ds-actions">
-            <span className="ds-pill">
+            <span className="ds-button">
               Primary action <kbd>⌘K</kbd>
             </span>
-            <span className="ds-pill is-ghost">Secondary</span>
+            <span className="ds-button is-ghost">Secondary</span>
           </div>
           <TextLink href="https://sportscal.site">See it on SportsCal</TextLink>
         </div>
@@ -219,6 +224,14 @@ export default function FoundationsPage() {
             </details>
           ))}
         </div>
+      </Section>
+      <Section
+        id="files"
+        title="Design files"
+        description="Everything above as files an agent or another project can use."
+        stacked
+      >
+        <DesignFilesSection />
       </Section>
     </>
   );

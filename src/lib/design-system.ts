@@ -2,25 +2,25 @@ export const colors = [
   {
     name: "Canvas",
     token: "background",
-    value: "#000000",
+    value: "#0a0a0a",
     description: "The page itself.",
   },
   {
     name: "Surface",
     token: "card",
-    value: "#0a0a0a",
+    value: "#171717",
     description: "Cards and raised content.",
   },
   {
     name: "Subtle",
     token: "muted",
-    value: "#111111",
+    value: "#262626",
     description: "Quiet fills and grouping.",
   },
   {
     name: "Border",
     token: "border",
-    value: "#262626",
+    value: "rgba(255,255,255,0.1)",
     description: "Structure without noise.",
   },
   {
@@ -32,7 +32,7 @@ export const colors = [
   {
     name: "Primary text",
     token: "foreground",
-    value: "#ededed",
+    value: "#fafafa",
     description: "Content and primary actions.",
   },
 ] as const;

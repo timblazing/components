@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -5,9 +6,11 @@ import { cn } from "@/lib/utils";
 export function PageHeader({
   title,
   description,
+  children,
 }: {
   title: string;
   description: string;
+  children?: React.ReactNode;
 }) {
   return (
     <section className="ds-page-header">
@@ -15,6 +18,7 @@ export function PageHeader({
       <div className="ds-container ds-page-header-inner">
         <h1>{title}</h1>
         <p>{description}</p>
+        {children}
       </div>
     </section>
   );
@@ -60,6 +64,27 @@ export function Lead({
       {strong}
       {children && <> <span>{children}</span></>}
     </p>
+  );
+}
+
+/** Bordered link card with a title, arrow, and short description. */
+export function LinkCard({
+  href,
+  title,
+  children,
+}: {
+  href: string;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link href={href} className="ds-card">
+      <h3>
+        {title}
+        <ArrowUpRight size={18} aria-hidden="true" />
+      </h3>
+      <p>{children}</p>
+    </Link>
   );
 }
 

@@ -4,15 +4,17 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Github } from "@/components/design-system/github-icon";
+import { Separator } from "@/components/ui/separator";
 import { LogoMark } from "@/components/design-system/logo-mark";
 import { cn } from "@/lib/utils";
 
 const GITHUB_URL = "https://github.com/timblazing/components";
 
 const links = [
-  { title: "Foundations", href: "/" },
+  { title: "Foundations", href: "/foundations" },
   { title: "Components", href: "/components" },
   { title: "Blocks", href: "/blocks" },
+  { title: "Projects", href: "/projects" },
 ] as const;
 
 export function DesignSystemShell({ children }: { children: React.ReactNode }) {
@@ -26,7 +28,9 @@ export function DesignSystemShell({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (pathname.startsWith("/fillrate/blocks/")) return children;
+  if (pathname.startsWith("/fillrate/blocks/") || pathname.startsWith("/blocks/")) {
+    return children;
+  }
   return (
     <div className="system-shell">
       <a href="#main-content" className="skip-link">
@@ -35,15 +39,11 @@ export function DesignSystemShell({ children }: { children: React.ReactNode }) {
       <header className={cn("system-header", scrolled && "is-scrolled")}>
         <div className="ds-container system-navbar">
           <Link href="/" className="system-brand">
-            <LogoMark />
-            <span>components</span>
+            components
           </Link>
           <nav aria-label="Main navigation">
             {links.map(({ title, href }) => {
-              const active =
-                href === "/"
-                  ? pathname === "/" || pathname === "/foundations"
-                  : pathname === href;
+              const active = pathname === href;
               return (
                 <Link
                   key={href}
@@ -55,6 +55,7 @@ export function DesignSystemShell({ children }: { children: React.ReactNode }) {
                 </Link>
               );
             })}
+            <Separator orientation="vertical" />
             <a
               href={GITHUB_URL}
               target="_blank"
@@ -70,24 +71,22 @@ export function DesignSystemShell({ children }: { children: React.ReactNode }) {
       <main id="main-content" className="system-main" tabIndex={-1}>
         {children}
       </main>
-      <footer className="ds-container system-footer">
-        <div className="system-footer-top">
-          <div>
-            <div className="system-brand">
-              <LogoMark />
-              components
-            </div>
-            <p>The design system behind my projects.</p>
+      <footer className="system-footer">
+        <div className="ds-container system-footer-inner">
+          <div className="system-footer-brand">
+            <LogoMark />
+            <span>MIT licensed</span>
           </div>
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="components on GitHub"
-            className="icon-link is-outlined"
-          >
-            <Github size={16} />
-          </a>
+          <nav aria-label="Footer">
+            <a href={GITHUB_URL} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            {links.map(({ title, href }) => (
+              <Link key={href} href={href}>
+                {title}
+              </Link>
+            ))}
+          </nav>
         </div>
       </footer>
     </div>

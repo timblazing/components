@@ -2,11 +2,12 @@
 
 My personal development reference and public showcase for the design system used in my projects. Built with Next.js.
 
-- `/` — Foundations: color, typography, spacing, shape, and motion.
+- `/` — landing page.
+- `/foundations` — color, typography, spacing, shape, motion, patterns, and the design files.
 - `/components` — references and attribution for shadcn/ui, coss ui, blocks.so, and mapcn.
-- `/blocks` — composed interfaces from my projects.
-
-Appearance follows the user's system theme. Shared tokens are in `src/styles/system-tokens.css`; design notes are in [docs/design-system.md](docs/design-system.md).
+- `/blocks` — generic composed layouts (Landing Page) with preview and source.
+- `/projects` — composed interfaces from my projects.
+Appearance follows the system theme. Shared tokens are in `src/styles/system-tokens.css`; design notes are in [docs/design/DESIGN.md](docs/design/DESIGN.md), published with theme, variables, and token files at `/design/`.
 
 ## Development
 

@@ -32,7 +32,7 @@
   --position-te-background: oklch(0.962 0.04 90);
   --position-te-foreground: oklch(0.473 0.137 46);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-sans), sans-serif;
 }
 .dark .sleeper-theme {
   color-scheme: dark;

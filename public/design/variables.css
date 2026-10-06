@@ -1,3 +1,4 @@
+/* Generated from src/styles/system-tokens.css. Do not edit. */
 /* Canonical shared palette. Follows shadcn/ui's neutral theme. Project archives can scope their own source tokens. */
 :root {
   --background: #ffffff;
@@ -56,4 +57,13 @@
   --warning: #fbbf24;
   --info: #60a5fa;
   --sidebar: #171717;
+}
+
+:root {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --container: 1288px;
+  --gutter: 24px;
+  --header-height: 60px;
+  --section-space: 96px;
 }

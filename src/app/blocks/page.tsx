@@ -1,21 +1,34 @@
-import { BlockReference } from "@/components/design-system/block-reference";
-import { PageHeader, Section } from "@/components/design-system/layout";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import { BlockViewer } from "@/components/blocks/block-viewer";
+import { blocks, type BlockId } from "@/components/blocks/registry";
+import { PageHeader } from "@/components/design-system/layout";
 
 export const metadata = { title: "Blocks" };
-export default function BlocksPage() {
+
+export default async function BlocksPage() {
+  const ids = Object.keys(blocks) as BlockId[];
+  const sources = await Promise.all(
+    ids.map((id) => readFile(path.join(process.cwd(), blocks[id].file), "utf8")),
+  );
   return (
     <>
       <PageHeader
         title="Blocks"
-        description="Composed interfaces from my projects. Open one to preview it here, or full screen."
+        description="Generic, composed layouts built on my foundations. Preview, resize, copy the source, or open one full screen."
       />
-      <Section
-        title="Fillrate"
-        description="Clustering, loads, and shipment planning."
-        stacked
-      >
-        <BlockReference />
-      </Section>
+      <div className="ds-container" style={{ paddingBottom: 96, display: "grid", gap: 64 }}>
+        {ids.map((id, i) => (
+          <BlockViewer
+            key={id}
+            id={id}
+            title={blocks[id].title}
+            description={blocks[id].description}
+            file={blocks[id].file}
+            source={sources[i]}
+          />
+        ))}
+      </div>
     </>
   );
 }
