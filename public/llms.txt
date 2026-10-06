@@ -2,7 +2,7 @@
 
 > Personal design system reference and project showcase.
 
-- [Foundations](/): Color, typography, spacing, shape, and motion.
+- [Foundations](/): Color, typography, spacing, shape, motion, and page patterns.
 - [Components](/components): Library references and attribution.
 - [Blocks](/blocks): Composed project interfaces.
 - [Design notes](/design-system.md): Repository reference.

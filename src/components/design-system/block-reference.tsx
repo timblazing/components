@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 import {
   blocks,
   type BlockId,
@@ -18,11 +18,8 @@ function BlockEntry({ id }: { id: BlockId }) {
         aria-controls={`preview-${id}`}
         onClick={() => setOpen(!open)}
       >
-        <span>
-          <strong>{title}</strong>
-          <span>Fillrate</span>
-        </span>
-        <ChevronDown size={17} className={open ? "rotate-180" : ""} />
+        {title}
+        <Plus aria-hidden="true" />
       </button>
       <div id={`preview-${id}`} hidden={!open}>
         {open && (
@@ -33,8 +30,9 @@ function BlockEntry({ id }: { id: BlockId }) {
                 href={`/fillrate/blocks/${id}`}
                 target="_blank"
                 rel="noreferrer"
+                className="ds-text-link"
               >
-                Open full screen <ArrowUpRight size={13} />
+                Open full screen <ArrowUpRight size={14} aria-hidden="true" />
               </a>
             </div>
             <div className="block-entry-preview">

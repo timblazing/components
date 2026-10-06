@@ -1,5 +1,9 @@
-import { ArrowUpRight } from "lucide-react";
-import { PageHeading } from "@/components/design-system/page-heading";
+import {
+  Lead,
+  PageHeader,
+  Section,
+  TextLink,
+} from "@/components/design-system/layout";
 
 export const metadata = { title: "Components" };
 const libraries = [
@@ -57,45 +61,30 @@ const libraries = [
 
 export default function ComponentsPage() {
   return (
-    <div className="ds-content">
-      <PageHeading
+    <>
+      <PageHeader
         title="Components"
-        description="The component libraries I use and reference when building my projects."
+        description="The component libraries I use and reference when building my projects, with credit to the people who make them."
       />
-      <div className="library-reference">
-        {libraries.map((library) => (
-          <article className="library-entry" key={library.name}>
-            <div className="library-identity">
-              <span className="library-role">{library.role}</span>
-              <h2>
-                <a href={library.url} target="_blank" rel="noreferrer">
-                  {library.name}
-                  <ArrowUpRight size={17} />
-                </a>
-              </h2>
-              <p className="library-credit">By {library.credit}</p>
-            </div>
-            <div className="library-description">
-              <p>{library.description}</p>
-              <p>{library.detail}</p>
-              <div className="library-use">
-                <span>Use for</span>
-                <p>{library.use}</p>
-              </div>
-              <div className="library-links">
-                <a href={library.reference} target="_blank" rel="noreferrer">
-                  Reference <ArrowUpRight size={13} />
-                </a>
-                {library.source && (
-                  <a href={library.source} target="_blank" rel="noreferrer">
-                    Source <ArrowUpRight size={13} />
-                  </a>
-                )}
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
+      {libraries.map((library) => (
+        <Section key={library.name} title={library.name}>
+          <div className="library-meta">
+            <span>{library.role}</span>
+            <span>By {library.credit}</span>
+          </div>
+          <Lead strong={library.description}>{library.detail}</Lead>
+          <p className="ds-body">
+            <strong>Use for</strong> {library.use}
+          </p>
+          <div className="library-links">
+            <TextLink href={library.url}>Website</TextLink>
+            <TextLink href={library.reference}>Reference</TextLink>
+            {library.source && (
+              <TextLink href={library.source}>Source</TextLink>
+            )}
+          </div>
+        </Section>
+      ))}
+    </>
   );
 }
