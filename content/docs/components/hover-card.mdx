@@ -1,0 +1,49 @@
+---
+title: Hover Card
+description: A preview card shown when hovering or focusing a link or other trigger.
+---
+
+<ComponentPreview name="hover-card-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add hover-card
+```
+
+## Usage
+
+```tsx
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+```
+
+```tsx
+<HoverCard>
+  <HoverCardTrigger render={<a href="/user" />}>@nextjs</HoverCardTrigger>
+  <HoverCardContent>The React framework for production.</HoverCardContent>
+</HoverCard>
+```
+
+## Examples
+
+### Sides
+
+<ComponentPreview name="hover-card-sides" />
+
+### Inline link
+
+<ComponentPreview name="hover-card-inline-link" />
+
+## Guidelines
+
+- Use for sighted-mouse previews of a link's destination; the trigger must remain useful on its own.
+- Never put essential information or actions only in the card; touch and keyboard users may not see it.
+- Keep it to a glanceable summary.
+
+## API
+
+See the shadcn/ui [Hover Card docs](https://ui.shadcn.com/docs/components/base/hover-card) and Base UI [Preview Card](https://base-ui.com/react/components/preview-card).

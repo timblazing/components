@@ -1,0 +1,23 @@
+{
+  "title": "Components",
+  "description": "shadcn/ui on Base UI",
+  "icon": "Component",
+  "root": true,
+  "pages": [
+    "index",
+    "---Actions---",
+    "button", "button-group", "toggle", "toggle-group",
+    "---Forms---",
+    "input", "input-group", "input-otp", "textarea", "field", "label", "checkbox", "radio-group", "switch", "slider", "select", "native-select", "combobox", "calendar",
+    "---Data display---",
+    "avatar", "badge", "card", "item", "table", "kbd", "empty", "aspect-ratio", "carousel", "chart",
+    "---Feedback---",
+    "alert", "progress", "skeleton", "spinner", "sonner",
+    "---Navigation---",
+    "breadcrumb", "navigation-menu", "menubar", "pagination", "tabs", "sidebar",
+    "---Overlays---",
+    "dialog", "alert-dialog", "sheet", "drawer", "popover", "hover-card", "tooltip", "dropdown-menu", "context-menu", "command",
+    "---Layout---",
+    "accordion", "collapsible", "separator", "scroll-area", "resizable"
+  ]
+}

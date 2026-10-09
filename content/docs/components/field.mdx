@@ -1,0 +1,63 @@
+---
+title: Field
+description: Composes labels, controls, descriptions, and errors into accessible form fields.
+---
+
+<ComponentPreview name="field-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add field
+```
+
+## Usage
+
+```tsx
+import {
+  Field,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field"
+```
+
+```tsx
+<FieldGroup>
+  <Field>
+    <FieldLabel htmlFor="email">Email</FieldLabel>
+    <Input id="email" type="email" />
+    <FieldDescription>We'll never share your email.</FieldDescription>
+  </Field>
+</FieldGroup>
+```
+
+## Examples
+
+### Horizontal
+
+Set `orientation="horizontal"` for switches, checkboxes, and radios. Wrap text in `FieldContent`.
+
+<ComponentPreview name="field-horizontal" />
+
+### Error
+
+Set `data-invalid` on the `Field` and `aria-invalid` on the control.
+
+<ComponentPreview name="field-error" />
+
+### Fieldset
+
+Use `FieldSet` and `FieldLegend` to group related fields, and `FieldSeparator` to divide sections.
+
+<ComponentPreview name="field-fieldset" />
+
+## Guidelines
+
+- Link every label to its control with `htmlFor` and `id`.
+- Put hints in `FieldDescription` and validation messages in `FieldError`.
+- Group related controls in a `FieldSet` with a `FieldLegend`.
+
+## API
+
+See the shadcn/ui [Field](https://ui.shadcn.com/docs/components/base/field) docs.

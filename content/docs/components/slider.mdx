@@ -1,0 +1,54 @@
+---
+title: Slider
+description: Selects a value or range along a track.
+---
+
+<ComponentPreview name="slider-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add slider
+```
+
+## Usage
+
+```tsx
+import { Slider } from "@/components/ui/slider"
+```
+
+```tsx
+<Slider defaultValue={[50]} max={100} step={1} />
+```
+
+## Examples
+
+### Range
+
+Pass two values to render two thumbs.
+
+<ComponentPreview name="slider-range" />
+
+### Vertical
+
+<ComponentPreview name="slider-vertical" />
+
+### Controlled
+
+`onValueChange` receives a `number` or `number[]`. Normalize it before storing.
+
+<ComponentPreview name="slider-controlled" />
+
+### Disabled
+
+<ComponentPreview name="slider-disabled" />
+
+## Guidelines
+
+- Show the current value nearby. A thumb position alone isn't precise.
+- Choose a `step` that matches the precision users need.
+- Provide an `aria-label` when there is no visible label.
+
+## API
+
+See the shadcn/ui [Slider](https://ui.shadcn.com/docs/components/base/slider) and Base UI [Slider](https://base-ui.com/react/components/slider) docs.

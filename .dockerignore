@@ -1,9 +1,7 @@
-.git
-.github
 node_modules
 .next
+out
+.git
+.ui-shots
 output
-.playwright-cli
-*.tsbuildinfo
-.env*
-.DS_Store
+.source

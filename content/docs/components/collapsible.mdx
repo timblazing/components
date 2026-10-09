@@ -1,0 +1,47 @@
+---
+title: Collapsible
+description: An interactive component that expands and collapses a single panel.
+---
+
+<ComponentPreview name="collapsible-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add collapsible
+```
+
+## Usage
+
+```tsx
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+```
+
+```tsx
+<Collapsible>
+  <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
+  <CollapsibleContent>
+    Yes. Free to use for personal and commercial projects.
+  </CollapsibleContent>
+</Collapsible>
+```
+
+## Examples
+
+### Default open
+
+<ComponentPreview name="collapsible-default-open" />
+
+## Guidelines
+
+- Use a collapsible for one optional section. For a group of related sections, use an [Accordion](/components/accordion).
+- Keep the trigger always visible and indicate state with a rotating chevron.
+- Control `open` only when other UI depends on it; otherwise rely on `defaultOpen`.
+
+## API
+
+See the shadcn/ui [Collapsible docs](https://ui.shadcn.com/docs/components/base/collapsible) and Base UI [Collapsible](https://base-ui.com/react/components/collapsible).

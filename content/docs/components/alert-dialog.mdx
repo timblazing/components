@@ -1,0 +1,68 @@
+---
+title: Alert Dialog
+description: A modal dialog that interrupts the user to confirm an important action.
+---
+
+<ComponentPreview name="alert-dialog-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add alert-dialog
+```
+
+## Usage
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+```
+
+```tsx
+<AlertDialog>
+  <AlertDialogTrigger render={<Button variant="outline" />}>Delete</AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+      <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Continue</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+```
+
+## Examples
+
+### Destructive
+
+Add an `AlertDialogMedia` icon and a destructive action.
+
+<ComponentPreview name="alert-dialog-destructive" />
+
+### Small
+
+Set `size="sm"` for short confirmations.
+
+<ComponentPreview name="alert-dialog-small" />
+
+## Guidelines
+
+- Use only when the user must acknowledge or confirm; it can't be dismissed by clicking outside.
+- State the consequence in the title and label the action with a verb, such as "Delete project".
+- For non-blocking tasks and forms, use a [Dialog](/components/dialog) instead.
+
+## API
+
+See the shadcn/ui [Alert Dialog docs](https://ui.shadcn.com/docs/components/base/alert-dialog) and Base UI [Alert Dialog](https://base-ui.com/react/components/alert-dialog).

@@ -1,0 +1,57 @@
+---
+title: Command
+description: A searchable command menu for fast keyboard-driven navigation and actions.
+---
+
+<ComponentPreview name="command-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add command
+```
+
+## Usage
+
+```tsx
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+```
+
+```tsx
+<Command>
+  <CommandInput placeholder="Type a command or search..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Suggestions">
+      <CommandItem>Calendar</CommandItem>
+      <CommandItem>Calculator</CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>
+```
+
+## Examples
+
+### Dialog
+
+Wrap the command in `CommandDialog` and toggle it with a keyboard shortcut such as <kbd>⌘K</kbd>.
+
+<ComponentPreview name="command-dialog" />
+
+## Guidelines
+
+- Always include a `CommandEmpty` state so a failed search is never a blank list.
+- Group related commands with a heading and show shortcuts with `CommandShortcut`.
+- Use `CommandDialog` for app-wide palettes; render `Command` inline for in-page search.
+- Close the dialog in `onSelect` after running the command.
+
+## API
+
+See the shadcn/ui [Command docs](https://ui.shadcn.com/docs/components/base/command) and [cmdk](https://cmdk.paco.me).

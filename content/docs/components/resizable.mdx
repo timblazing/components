@@ -1,0 +1,54 @@
+---
+title: Resizable
+description: Panel layouts that users can resize by dragging or with the keyboard.
+---
+
+<ComponentPreview name="resizable-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add resizable
+```
+
+## Usage
+
+```tsx
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
+```
+
+```tsx
+<ResizablePanelGroup orientation="horizontal">
+  <ResizablePanel defaultSize="50%">One</ResizablePanel>
+  <ResizableHandle />
+  <ResizablePanel defaultSize="50%">Two</ResizablePanel>
+</ResizablePanelGroup>
+```
+
+Sizes accept percentage strings such as `"50%"`; plain numbers are pixels.
+
+## Examples
+
+### Vertical
+
+<ComponentPreview name="resizable-vertical" />
+
+### Handle and nested groups
+
+Pass `withHandle` for a visible grip, and nest groups for IDE-style layouts.
+
+<ComponentPreview name="resizable-handle" />
+
+## Guidelines
+
+- Set `minSize` on panels that hold essential content so they can't be dragged to nothing.
+- Give the group a bounded height; panels fill their parent.
+- Use `withHandle` when resizing needs to be discoverable.
+
+## API
+
+See the shadcn/ui [Resizable docs](https://ui.shadcn.com/docs/components/base/resizable) and [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels).

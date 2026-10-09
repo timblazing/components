@@ -1,0 +1,61 @@
+---
+title: Sheet
+description: A panel that slides in from the edge of the screen to show supplementary content.
+---
+
+<ComponentPreview name="sheet-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add sheet
+```
+
+## Usage
+
+```tsx
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+```
+
+```tsx
+<Sheet>
+  <SheetTrigger render={<Button variant="outline" />}>Open</SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Edit profile</SheetTitle>
+      <SheetDescription>Make changes to your profile.</SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+```
+
+Sheet is built on the Base UI Dialog.
+
+## Examples
+
+### Side
+
+Use the `side` prop on `SheetContent` to anchor to `top`, `right`, `bottom`, or `left`.
+
+<ComponentPreview name="sheet-side" />
+
+### Without close button
+
+<ComponentPreview name="sheet-no-close" />
+
+## Guidelines
+
+- Use for secondary tasks that keep the user in context, such as editing a record or filtering a list.
+- Default to `right`; use `left` for navigation and `bottom` on mobile.
+- Keep the primary action in `SheetFooter`.
+
+## API
+
+See the shadcn/ui [Sheet docs](https://ui.shadcn.com/docs/components/base/sheet) and Base UI [Dialog](https://base-ui.com/react/components/dialog).

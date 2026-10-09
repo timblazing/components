@@ -1,0 +1,61 @@
+---
+title: Input Group
+description: Adds icons, text, and buttons inside or around an input.
+---
+
+<ComponentPreview name="input-group-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add input-group
+```
+
+## Usage
+
+```tsx
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group"
+```
+
+```tsx
+<InputGroup>
+  <InputGroupInput placeholder="Search..." />
+  <InputGroupAddon>
+    <SearchIcon />
+  </InputGroupAddon>
+</InputGroup>
+```
+
+## Examples
+
+### Text
+
+Use `InputGroupText` inside an addon for prefixes and units.
+
+<ComponentPreview name="input-group-text" />
+
+### Button
+
+Use `InputGroupButton` for inline actions. Set `align="inline-end"` on the addon to place it after the input.
+
+<ComponentPreview name="input-group-button" />
+
+### Textarea
+
+Use `InputGroupTextarea` with `align="block-end"` for a footer toolbar.
+
+<ComponentPreview name="input-group-textarea" />
+
+## Guidelines
+
+- Use `InputGroup` instead of positioning icons by hand. It handles focus rings and padding.
+- Keep addons short. Long help text belongs in a `FieldDescription`.
+- Give inline buttons an `aria-label` when they only show an icon.
+
+## API
+
+See the shadcn/ui [Input Group](https://ui.shadcn.com/docs/components/base/input-group) docs.

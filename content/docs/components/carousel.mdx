@@ -1,0 +1,65 @@
+---
+title: Carousel
+description: A swipeable set of slides built on Embla Carousel.
+---
+
+<ComponentPreview name="carousel-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add carousel
+```
+
+## Usage
+
+```tsx
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+```
+
+```tsx
+<Carousel>
+  <CarouselContent>
+    <CarouselItem>...</CarouselItem>
+    <CarouselItem>...</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>
+```
+
+## Examples
+
+### Sizes
+
+Control slide width with `basis-*` classes on `CarouselItem`.
+
+<ComponentPreview name="carousel-sizes" />
+
+### Vertical
+
+Set `orientation="vertical"` and give `CarouselContent` a height.
+
+<ComponentPreview name="carousel-vertical" />
+
+### API
+
+Pass `setApi` to read or control the Embla instance.
+
+<ComponentPreview name="carousel-api" />
+
+## Guidelines
+
+- Keep slide counts small and content scannable.
+- Don't hide critical information in later slides.
+- The previous and next buttons sit outside the carousel; leave room for them.
+
+## API
+
+See the shadcn/ui [Carousel](https://ui.shadcn.com/docs/components/base/carousel) docs and [Embla Carousel](https://www.embla-carousel.com/api/).

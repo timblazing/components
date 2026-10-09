@@ -1,0 +1,50 @@
+---
+title: Textarea
+description: A multi-line text field for longer free-form content.
+---
+
+<ComponentPreview name="textarea-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add textarea
+```
+
+## Usage
+
+```tsx
+import { Textarea } from "@/components/ui/textarea"
+```
+
+```tsx
+<Textarea placeholder="Type your message here." />
+```
+
+## Examples
+
+### With label
+
+<ComponentPreview name="textarea-with-label" />
+
+### Disabled
+
+<ComponentPreview name="textarea-disabled" />
+
+### Invalid
+
+<ComponentPreview name="textarea-invalid" />
+
+### With button
+
+<ComponentPreview name="textarea-with-button" />
+
+## Guidelines
+
+- Always provide a visible label.
+- Use a Textarea when responses may exceed a line. Use an [Input](/components/input) otherwise.
+- Say how much is expected in the description or placeholder.
+
+## API
+
+See the shadcn/ui [Textarea](https://ui.shadcn.com/docs/components/base/textarea) docs.

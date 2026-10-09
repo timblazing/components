@@ -1,0 +1,54 @@
+---
+title: Context Menu
+description: A menu of actions that opens on right click or long press.
+---
+
+<ComponentPreview name="context-menu-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add context-menu
+```
+
+## Usage
+
+```tsx
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu"
+```
+
+```tsx
+<ContextMenu>
+  <ContextMenuTrigger>Right click here</ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem>Copy</ContextMenuItem>
+    <ContextMenuItem>Paste</ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>
+```
+
+## Examples
+
+### Submenu
+
+<ComponentPreview name="context-menu-submenu" />
+
+### Checkboxes and radios
+
+<ComponentPreview name="context-menu-checkboxes" />
+
+## Guidelines
+
+- Treat a context menu as a shortcut, never the only way to reach an action. Mirror it in visible UI.
+- Keep it short and put the most common actions first.
+- Use `variant="destructive"` for deletion and separate it from the other items.
+- Give the trigger area a visible affordance, since right click is not discoverable on its own.
+
+## API
+
+See the shadcn/ui [Context Menu docs](https://ui.shadcn.com/docs/components/base/context-menu) and Base UI [Context Menu](https://base-ui.com/react/components/context-menu).

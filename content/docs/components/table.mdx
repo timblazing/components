@@ -1,0 +1,68 @@
+---
+title: Table
+description: A responsive table for displaying rows of structured data.
+---
+
+<ComponentPreview name="table-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add table
+```
+
+## Usage
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+```
+
+```tsx
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Invoice</TableHead>
+      <TableHead className="text-right">Amount</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>INV-001</TableCell>
+      <TableCell className="text-right">$250.00</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## Examples
+
+### Status
+
+Use badges sparingly for status columns.
+
+<ComponentPreview name="table-status" />
+
+### Row actions
+
+Give icon-only row actions an `aria-label`.
+
+<ComponentPreview name="table-actions" />
+
+## Guidelines
+
+- Right-align numeric columns and use `tabular-nums` so digits line up.
+- Keep column headers short and in sentence case.
+- Don't use a table for layout.
+
+## API
+
+See the shadcn/ui [Table](https://ui.shadcn.com/docs/components/base/table) docs.

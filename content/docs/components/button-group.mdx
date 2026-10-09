@@ -1,0 +1,60 @@
+---
+title: Button Group
+description: Groups related buttons, inputs, and text into a single connected control.
+---
+
+<ComponentPreview name="button-group-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add button-group
+```
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
+```
+
+```tsx
+<ButtonGroup>
+  <Button variant="outline">Archive</Button>
+  <Button variant="outline">Report</Button>
+</ButtonGroup>
+```
+
+## Examples
+
+### Vertical
+
+Set `orientation="vertical"` to stack the group.
+
+<ComponentPreview name="button-group-vertical" />
+
+### Split button
+
+Use `ButtonGroupSeparator` between buttons that share a variant.
+
+<ComponentPreview name="button-group-split" />
+
+### With input
+
+<ComponentPreview name="button-group-with-input" />
+
+### With text
+
+Use `ButtonGroupText` for static prefixes and suffixes.
+
+<ComponentPreview name="button-group-with-text" />
+
+## Guidelines
+
+- Group only actions that belong together. Unrelated buttons should keep their own spacing.
+- Keep one variant per group so the buttons read as a single control.
+- Give icon-only buttons an `aria-label`.
+
+## API
+
+See the shadcn/ui [Button Group](https://ui.shadcn.com/docs/components/base/button-group) docs.

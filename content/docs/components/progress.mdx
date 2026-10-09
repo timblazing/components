@@ -1,0 +1,46 @@
+---
+title: Progress
+description: Shows the completion progress of a task.
+---
+
+<ComponentPreview name="progress-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add progress
+```
+
+## Usage
+
+```tsx
+import { Progress, ProgressLabel, ProgressValue } from "@/components/ui/progress"
+```
+
+```tsx
+<Progress value={66} />
+```
+
+## Examples
+
+### With label
+
+Add `ProgressLabel` and `ProgressValue` as children.
+
+<ComponentPreview name="progress-label" />
+
+### Animated
+
+The indicator transitions when `value` changes.
+
+<ComponentPreview name="progress-animated" />
+
+## Guidelines
+
+- Use progress only when you can measure completion; otherwise use a [Spinner](/components/spinner).
+- Pair with a label so the value has context.
+- Keep the bar monochrome.
+
+## API
+
+See the shadcn/ui [Progress](https://ui.shadcn.com/docs/components/base/progress) docs and Base UI [Progress](https://base-ui.com/react/components/progress).

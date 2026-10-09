@@ -1,0 +1,69 @@
+---
+title: Breadcrumb
+description: Shows the path to the current page and lets people navigate back up the hierarchy.
+---
+
+<ComponentPreview name="breadcrumb-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add breadcrumb
+```
+
+## Usage
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+```
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Current page</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+Use `render` on `BreadcrumbLink` to swap in your framework's link component.
+
+## Examples
+
+### Dropdown
+
+<ComponentPreview name="breadcrumb-dropdown" />
+
+### Collapsed with ellipsis
+
+Collapse middle levels of a long path with `BreadcrumbEllipsis`.
+
+<ComponentPreview name="breadcrumb-ellipsis" />
+
+### Custom separator
+
+Pass children to `BreadcrumbSeparator` to replace the default chevron.
+
+<ComponentPreview name="breadcrumb-custom-separator" />
+
+## Guidelines
+
+- Mark the current page with `BreadcrumbPage`, not a link.
+- Collapse middle levels with an ellipsis once the path gets longer than four items.
+- Don't use breadcrumbs as the only navigation; they show where you are, not everything available.
+
+## API
+
+See the shadcn/ui [Breadcrumb docs](https://ui.shadcn.com/docs/components/base/breadcrumb).

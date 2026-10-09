@@ -1,0 +1,66 @@
+---
+title: Pagination
+description: Navigation between pages of content, with previous, next, and numbered links.
+---
+
+<ComponentPreview name="pagination-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add pagination
+```
+
+## Usage
+
+```tsx
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
+```
+
+```tsx
+<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#" isActive>1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+```
+
+## Examples
+
+### Simple
+
+Previous and next only, with custom text.
+
+<ComponentPreview name="pagination-simple" />
+
+### Stateful
+
+Links are plain anchors; handle `onClick` for client-side paging.
+
+<ComponentPreview name="pagination-stateful" />
+
+## Guidelines
+
+- Mark the current page with `isActive` so it gets `aria-current="page"`.
+- Collapse long ranges with `PaginationEllipsis` instead of rendering every page.
+- Prefer real `href`s so pages stay linkable and crawlable.
+
+## API
+
+See the shadcn/ui [Pagination docs](https://ui.shadcn.com/docs/components/base/pagination).

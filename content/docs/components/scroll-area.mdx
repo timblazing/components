@@ -1,0 +1,42 @@
+---
+title: Scroll Area
+description: A scrollable region with consistent, styled scrollbars across browsers.
+---
+
+<ComponentPreview name="scroll-area-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add scroll-area
+```
+
+## Usage
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+```
+
+```tsx
+<ScrollArea className="h-72 w-48 rounded-md border">
+  {/* long content */}
+</ScrollArea>
+```
+
+## Examples
+
+### Horizontal
+
+Add a `ScrollBar` with `orientation="horizontal"` and make the content `w-max`.
+
+<ComponentPreview name="scroll-area-horizontal" />
+
+## Guidelines
+
+- Give the scroll area an explicit height (or width for horizontal) so it has something to overflow.
+- Prefer native scrolling for the page itself; use this for contained regions like lists and panels.
+- Make sure scrollable regions remain reachable by keyboard.
+
+## API
+
+See the shadcn/ui [Scroll Area docs](https://ui.shadcn.com/docs/components/base/scroll-area) and Base UI [Scroll Area](https://base-ui.com/react/components/scroll-area).

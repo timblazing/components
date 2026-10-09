@@ -1,0 +1,71 @@
+---
+title: Combobox
+description: An input with a filterable list of options.
+---
+
+<ComponentPreview name="combobox-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add combobox
+```
+
+## Usage
+
+```tsx
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "@/components/ui/combobox"
+```
+
+```tsx
+<Combobox items={frameworks}>
+  <ComboboxInput placeholder="Select a framework" />
+  <ComboboxContent>
+    <ComboboxEmpty>No framework found.</ComboboxEmpty>
+    <ComboboxList>
+      {(item) => (
+        <ComboboxItem key={item} value={item}>
+          {item}
+        </ComboboxItem>
+      )}
+    </ComboboxList>
+  </ComboboxContent>
+</Combobox>
+```
+
+## Examples
+
+### Clear button
+
+Set `showClear` on `ComboboxInput`.
+
+<ComponentPreview name="combobox-clear" />
+
+### Groups
+
+Pass grouped items and render each group with `ComboboxGroup` and `ComboboxCollection`.
+
+<ComponentPreview name="combobox-groups" />
+
+### Multiple
+
+Set `multiple` and render selections as chips. Anchor the popup to the chips with `useComboboxAnchor`.
+
+<ComponentPreview name="combobox-multiple" />
+
+## Guidelines
+
+- Use a combobox for lists too long to scan. Use a [Select](/components/select) for short ones.
+- Always include `ComboboxEmpty` so searches with no match aren't a dead end.
+- Pass `items` to `Combobox` and render with a function so filtering stays virtualization-friendly.
+
+## API
+
+See the shadcn/ui [Combobox](https://ui.shadcn.com/docs/components/base/combobox) and Base UI [Combobox](https://base-ui.com/react/components/combobox) docs.

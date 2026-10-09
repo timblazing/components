@@ -1,0 +1,52 @@
+---
+title: Badge
+description: A small label for status, category, or count.
+---
+
+<ComponentPreview name="badge-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add badge
+```
+
+## Usage
+
+```tsx
+import { Badge } from "@/components/ui/badge"
+```
+
+```tsx
+<Badge variant="secondary">Badge</Badge>
+```
+
+## Examples
+
+### With icon
+
+Mark icons with `data-icon="inline-start"` or `inline-end` to adjust padding.
+
+<ComponentPreview name="badge-with-icon" />
+
+### Status
+
+Color is reserved for status. Pair `bg-success/10 text-success` style tokens with a clear label.
+
+<ComponentPreview name="badge-status" />
+
+### As link
+
+Use `render` to render a different element.
+
+<ComponentPreview name="badge-link" />
+
+## Guidelines
+
+- Keep badges to one or two words.
+- Use color only to convey status (`success`, `warning`, `info`, `destructive`). Everything else is `default`, `secondary`, or `outline`.
+- Don't use a badge as a button; use a [Button](/components/button) for actions.
+
+## API
+
+See the shadcn/ui [Badge](https://ui.shadcn.com/docs/components/base/badge) docs.

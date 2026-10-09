@@ -1,0 +1,59 @@
+---
+title: Drawer
+description: A swipeable panel that slides in from the edge of the screen, built for touch.
+---
+
+<ComponentPreview name="drawer-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add drawer
+```
+
+## Usage
+
+```tsx
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+```
+
+```tsx
+<Drawer showSwipeHandle>
+  <DrawerTrigger render={<Button variant="outline" />}>Open</DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Set a goal</DrawerTitle>
+      <DrawerDescription>Choose your daily target.</DrawerDescription>
+    </DrawerHeader>
+  </DrawerContent>
+</Drawer>
+```
+
+## Examples
+
+### Directions
+
+Set `swipeDirection` on `Drawer` to choose the edge and dismiss gesture.
+
+<ComponentPreview name="drawer-directions" />
+
+### With form
+
+<ComponentPreview name="drawer-form" />
+
+## Guidelines
+
+- Prefer a drawer on touch devices where swiping to dismiss feels natural; use a [Dialog](/components/dialog) on desktop.
+- Constrain content width inside `DrawerContent` so it doesn't stretch on wide screens.
+- Always provide a visible close action, not just the swipe gesture.
+
+## API
+
+See the shadcn/ui [Drawer docs](https://ui.shadcn.com/docs/components/base/drawer) and Base UI [Drawer](https://base-ui.com/react/components/drawer).

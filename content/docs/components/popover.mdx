@@ -1,0 +1,59 @@
+---
+title: Popover
+description: Displays rich content in a floating panel anchored to a trigger.
+---
+
+<ComponentPreview name="popover-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add popover
+```
+
+## Usage
+
+```tsx
+import {
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+```
+
+```tsx
+<Popover>
+  <PopoverTrigger render={<Button variant="outline" />}>Open</PopoverTrigger>
+  <PopoverContent>
+    <PopoverHeader>
+      <PopoverTitle>Title</PopoverTitle>
+      <PopoverDescription>Description</PopoverDescription>
+    </PopoverHeader>
+  </PopoverContent>
+</Popover>
+```
+
+## Examples
+
+### Sides
+
+Use `side` and `align` on `PopoverContent`.
+
+<ComponentPreview name="popover-sides" />
+
+### Aligned info
+
+<ComponentPreview name="popover-aligned" />
+
+## Guidelines
+
+- Use for small, interactive content such as a form or settings; it opens on click.
+- Use a [Tooltip](/components/tooltip) for plain text hints and a [Hover Card](/components/hover-card) for previews.
+- Keep content brief; move anything long into a [Dialog](/components/dialog) or [Sheet](/components/sheet).
+
+## API
+
+See the shadcn/ui [Popover docs](https://ui.shadcn.com/docs/components/base/popover) and Base UI [Popover](https://base-ui.com/react/components/popover).

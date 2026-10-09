@@ -1,0 +1,55 @@
+---
+title: Avatar
+description: An image that represents a user, with a fallback for when it fails to load.
+---
+
+<ComponentPreview name="avatar-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add avatar
+```
+
+## Usage
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+```
+
+```tsx
+<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
+```
+
+## Examples
+
+### Sizes
+
+Use `size` with `sm`, `default`, or `lg`.
+
+<ComponentPreview name="avatar-sizes" />
+
+### Group
+
+Stack avatars with `AvatarGroup` and summarize the rest with `AvatarGroupCount`.
+
+<ComponentPreview name="avatar-group" />
+
+### Badge
+
+Use `AvatarBadge` for presence or status. Status color is allowed here.
+
+<ComponentPreview name="avatar-badge" />
+
+## Guidelines
+
+- Always render an `AvatarFallback` with initials; images fail.
+- Keep avatars monochrome and circular. Use `AvatarBadge` color only for presence status.
+- Don't use an avatar as the only identifier in a list; pair it with a name.
+
+## API
+
+See the shadcn/ui [Avatar](https://ui.shadcn.com/docs/components/base/avatar) docs and Base UI [Avatar](https://base-ui.com/react/components/avatar).

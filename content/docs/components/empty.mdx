@@ -1,0 +1,64 @@
+---
+title: Empty
+description: Placeholder content for when there is nothing to show yet.
+---
+
+<ComponentPreview name="empty-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add empty
+```
+
+## Usage
+
+```tsx
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty"
+```
+
+```tsx
+<Empty>
+  <EmptyHeader>
+    <EmptyMedia variant="icon">
+      <FolderOpenIcon />
+    </EmptyMedia>
+    <EmptyTitle>No projects yet</EmptyTitle>
+    <EmptyDescription>Create one to get started.</EmptyDescription>
+  </EmptyHeader>
+  <EmptyContent>
+    <Button>Create project</Button>
+  </EmptyContent>
+</Empty>
+```
+
+## Examples
+
+### No results
+
+Offer a way to recover, such as clearing the search.
+
+<ComponentPreview name="empty-search" />
+
+### Minimal
+
+Skip the action when nothing is needed from the user.
+
+<ComponentPreview name="empty-minimal" />
+
+## Guidelines
+
+- Say what is missing and what to do next, in one sentence each.
+- Offer a single primary action at most.
+- Don't use an empty state for errors; use an [Alert](/components/alert).
+
+## API
+
+See the shadcn/ui [Empty](https://ui.shadcn.com/docs/components/base/empty) docs.

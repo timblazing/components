@@ -1,0 +1,48 @@
+---
+title: Toggle
+description: A two-state button that can be on or off.
+---
+
+<ComponentPreview name="toggle-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add toggle
+```
+
+## Usage
+
+```tsx
+import { Toggle } from "@/components/ui/toggle"
+```
+
+```tsx
+<Toggle aria-label="Toggle bold" variant="outline">
+  <BoldIcon />
+</Toggle>
+```
+
+## Examples
+
+### With text
+
+<ComponentPreview name="toggle-with-text" />
+
+### Sizes
+
+<ComponentPreview name="toggle-sizes" />
+
+### Disabled
+
+<ComponentPreview name="toggle-disabled" />
+
+## Guidelines
+
+- Use a toggle for a state that persists, like bold or mute. Use a [Button](/components/button) for one-off actions.
+- Give icon-only toggles an `aria-label`.
+- Prefer the `outline` variant when the toggle sits alone on a surface.
+
+## API
+
+See the shadcn/ui [Toggle](https://ui.shadcn.com/docs/components/base/toggle) and Base UI [Toggle](https://base-ui.com/react/components/toggle) docs.

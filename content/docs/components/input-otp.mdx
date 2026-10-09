@@ -1,0 +1,58 @@
+---
+title: Input OTP
+description: A segmented field for one-time passcodes and verification codes.
+---
+
+<ComponentPreview name="input-otp-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add input-otp
+```
+
+## Usage
+
+```tsx
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp"
+```
+
+```tsx
+<InputOTP maxLength={6}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+  </InputOTPGroup>
+</InputOTP>
+```
+
+## Examples
+
+### Separator
+
+<ComponentPreview name="input-otp-separator" />
+
+### Digits only
+
+Pass a `pattern` such as `REGEXP_ONLY_DIGITS` to restrict input.
+
+<ComponentPreview name="input-otp-digits-only" />
+
+### Disabled
+
+<ComponentPreview name="input-otp-disabled" />
+
+## Guidelines
+
+- Match `maxLength` to the number of slots you render.
+- Restrict characters with `pattern` when the code is numeric.
+- Group long codes with `InputOTPSeparator` so they're easier to read and type.
+
+## API
+
+See the shadcn/ui [Input OTP](https://ui.shadcn.com/docs/components/base/input-otp) docs.

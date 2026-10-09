@@ -1,0 +1,52 @@
+---
+title: Checkbox
+description: Lets people select one or more options from a set.
+---
+
+<ComponentPreview name="checkbox-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add checkbox
+```
+
+## Usage
+
+```tsx
+import { Checkbox } from "@/components/ui/checkbox"
+```
+
+```tsx
+<Checkbox id="terms" />
+```
+
+## Examples
+
+### With description
+
+<ComponentPreview name="checkbox-with-description" />
+
+### Disabled
+
+<ComponentPreview name="checkbox-disabled" />
+
+### Invalid
+
+<ComponentPreview name="checkbox-invalid" />
+
+### Group
+
+Wrap related checkboxes in a `FieldSet` so the group has an accessible name.
+
+<ComponentPreview name="checkbox-group" />
+
+## Guidelines
+
+- Use a checkbox for independent choices. Use a [Radio Group](/components/radio-group) when only one applies.
+- Write labels so the checked state is the affirmative one.
+- Use a [Switch](/components/switch) for settings that apply immediately.
+
+## API
+
+See the shadcn/ui [Checkbox](https://ui.shadcn.com/docs/components/base/checkbox) and Base UI [Checkbox](https://base-ui.com/react/components/checkbox) docs.

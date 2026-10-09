@@ -1,0 +1,19 @@
+---
+title: Elevation
+description: Depth from surface steps and hairlines. Shadows only for things that float.
+---
+
+Layers in the page get lighter (light mode) or lighter-gray (dark mode) as they come forward, separated by a 1px `--border`. Only floating layers — menus, popovers, tooltips, dialogs — get a shadow.
+
+<SurfaceStack />
+
+| Layer | Token | Border | Shadow |
+| --- | --- | --- | --- |
+| Canvas | `bg-background` | — | — |
+| Panel | `bg-card` | `border` | — |
+| Inset | `bg-muted` | optional | — |
+| Floating | `bg-popover` | `ring-1 ring-foreground/10` | `shadow-md` |
+| Modal | `bg-background` | `ring-1 ring-foreground/10` | `shadow-lg` + overlay |
+
+- Don't put shadows on cards that sit in the page flow.
+- Don't stack more than three surface steps.

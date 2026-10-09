@@ -1,0 +1,51 @@
+---
+title: Radio Group
+description: Lets people choose exactly one option from a set.
+---
+
+<ComponentPreview name="radio-group-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add radio-group
+```
+
+## Usage
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+```
+
+```tsx
+<RadioGroup defaultValue="comfortable">
+  <RadioGroupItem value="default" id="r1" />
+  <RadioGroupItem value="comfortable" id="r2" />
+</RadioGroup>
+```
+
+## Examples
+
+### With description
+
+<ComponentPreview name="radio-group-with-description" />
+
+### Card
+
+Nest a `Field` inside a `FieldLabel` to make the whole card selectable.
+
+<ComponentPreview name="radio-group-card" />
+
+### Disabled
+
+<ComponentPreview name="radio-group-disabled" />
+
+## Guidelines
+
+- Preselect the safest or most common option.
+- Keep to five options or fewer. Use a [Select](/components/select) for more.
+- Label the group with `aria-label` or a `FieldLegend`.
+
+## API
+
+See the shadcn/ui [Radio Group](https://ui.shadcn.com/docs/components/base/radio-group) and Base UI [Radio Group](https://base-ui.com/react/components/radio-group) docs.

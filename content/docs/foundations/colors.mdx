@@ -1,0 +1,60 @@
+---
+title: Colors
+description: Neutral surfaces with color reserved for status and data.
+---
+
+The palette is shadcn/ui **neutral** in OKLCH. Each swatch shows the light value on the left and the dark value on the right. Click a swatch to copy its `var()`.
+
+## Surfaces
+
+The canvas and the layers that sit on it.
+
+<ColorGrid tokens={['background', 'foreground', 'card', 'card-foreground', 'popover', 'popover-foreground']} />
+
+## Interactive
+
+Primary actions, secondary actions, and quiet hover states.
+
+<ColorGrid tokens={['primary', 'primary-foreground', 'secondary', 'secondary-foreground', 'accent', 'accent-foreground', 'muted', 'muted-foreground']} />
+
+## Lines
+
+Borders, input outlines, and focus rings. `--border-strong` is for rules that need to hold up next to a `--muted` fill.
+
+<ColorGrid tokens={['border', 'border-strong', 'input', 'ring']} />
+
+## Status
+
+The only hues in the interface. Use them for meaning, never decoration.
+
+<ColorGrid tokens={['destructive', 'success', 'warning', 'info']} />
+
+## Charts
+
+A five-step neutral ramp, darkest first in light mode and lightest first in dark mode, so the first series always has the most contrast. See [Charts](/charts).
+
+<ColorGrid tokens={['chart-1', 'chart-2', 'chart-3', 'chart-4', 'chart-5']} />
+
+## Sidebar
+
+<ColorGrid tokens={['sidebar', 'sidebar-foreground', 'sidebar-primary', 'sidebar-primary-foreground', 'sidebar-accent', 'sidebar-accent-foreground', 'sidebar-border', 'sidebar-ring']} />
+
+## Pairings
+
+Every surface token has a matching foreground. Use them together.
+
+<ColorPairs pairs={[['background', 'foreground'], ['card', 'card-foreground'], ['primary', 'primary-foreground'], ['secondary', 'secondary-foreground'], ['muted', 'muted-foreground'], ['accent', 'accent-foreground']]} />
+
+## Usage
+
+```tsx
+<div className="rounded-xl border bg-card text-card-foreground">
+  <p className="text-muted-foreground">Secondary text</p>
+  <span className="text-success">Shipped</span>
+</div>
+```
+
+- Do use the semantic utilities (`bg-card`, `text-muted-foreground`), not raw palette classes like `bg-neutral-900`.
+- Do pair every surface with its foreground token.
+- Don't use status colors for emphasis or decoration.
+- Don't add gradients.

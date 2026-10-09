@@ -1,0 +1,61 @@
+---
+title: Dialog
+description: A modal window overlaid on the page that requires a response before continuing.
+---
+
+<ComponentPreview name="dialog-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add dialog
+```
+
+## Usage
+
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+```
+
+```tsx
+<Dialog>
+  <DialogTrigger render={<Button variant="outline" />}>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you sure?</DialogTitle>
+      <DialogDescription>This will update your settings.</DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+```
+
+Use `render` on `DialogTrigger` and `DialogClose` to render a [Button](/components/button) instead of a bare `<button>`.
+
+## Examples
+
+### With form
+
+<ComponentPreview name="dialog-form" />
+
+### Without close button
+
+Set `showCloseButton={false}` when the user must choose an explicit action.
+
+<ComponentPreview name="dialog-no-close" />
+
+## Guidelines
+
+- Always include a `DialogTitle` and `DialogDescription` for assistive tech.
+- Use a dialog for focused tasks; use an [Alert Dialog](/components/alert-dialog) for confirmations that can't be undone.
+- Don't stack dialogs on top of each other.
+
+## API
+
+See the shadcn/ui [Dialog docs](https://ui.shadcn.com/docs/components/base/dialog) and Base UI [Dialog](https://base-ui.com/react/components/dialog).

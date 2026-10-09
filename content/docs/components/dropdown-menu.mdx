@@ -1,0 +1,58 @@
+---
+title: Dropdown Menu
+description: A menu of actions or options that opens from a trigger button.
+---
+
+<ComponentPreview name="dropdown-menu-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add dropdown-menu
+```
+
+## Usage
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+```
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Billing</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## Examples
+
+### Checkboxes
+
+<ComponentPreview name="dropdown-menu-checkboxes" />
+
+### Radio group
+
+<ComponentPreview name="dropdown-menu-radio-group" />
+
+### Submenu
+
+<ComponentPreview name="dropdown-menu-submenu" />
+
+## Guidelines
+
+- Use a dropdown menu for actions. For choosing a value in a form, use a [Select](/components/select).
+- Wrap labelled items in `DropdownMenuGroup`; `DropdownMenuLabel` must live inside a group.
+- To style the trigger as a button, use `render={<Button variant="outline" />}` rather than nesting a button.
+- Mark irreversible items with `variant="destructive"` and keep them last, after a separator.
+
+## API
+
+See the shadcn/ui [Dropdown Menu docs](https://ui.shadcn.com/docs/components/base/dropdown-menu) and Base UI [Menu](https://base-ui.com/react/components/menu).

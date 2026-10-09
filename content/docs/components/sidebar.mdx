@@ -1,0 +1,71 @@
+---
+title: Sidebar
+description: A composable, collapsible side navigation for apps, with groups, menus, and a mobile sheet.
+---
+
+<BlockPreview name="sidebar-07" />
+
+Sidebars take over the viewport, so they are shown as full blocks. See also [`/blocks/sidebar-08`](/blocks/sidebar-08) for an inset variant and [`/blocks/dashboard-01`](/blocks/dashboard-01) for a complete dashboard.
+
+## Installation
+
+```npm
+npx shadcn@latest add sidebar
+```
+
+## Usage
+
+```tsx
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarHeader,
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar"
+```
+
+```tsx
+<SidebarProvider>
+  <Sidebar>
+    <SidebarHeader />
+    <SidebarContent>
+      <SidebarGroup>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton render={<a href="/inbox" />}>Inbox</SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarGroup>
+    </SidebarContent>
+    <SidebarFooter />
+  </Sidebar>
+  <SidebarInset>
+    <header>
+      <SidebarTrigger />
+    </header>
+    <main>{children}</main>
+  </SidebarInset>
+</SidebarProvider>
+```
+
+## Examples
+
+Browse complete sidebar layouts in the [blocks](/blocks): [sidebar-07](/blocks/sidebar-07) (collapses to icons), [sidebar-08](/blocks/sidebar-08) (inset), and [dashboard-01](/blocks/dashboard-01).
+
+## Guidelines
+
+- Wrap the whole layout in one `SidebarProvider`; it owns the open state and the `⌘B` / `Ctrl+B` shortcut.
+- Put page content in `SidebarInset` so it resizes with the sidebar.
+- Group related items under `SidebarGroup` with a label, and keep top-level groups to five or fewer.
+- On small screens the sidebar renders as a [Sheet](/components/sheet) automatically; always include a `SidebarTrigger`.
+
+## API
+
+See the shadcn/ui [Sidebar docs](https://ui.shadcn.com/docs/components/base/sidebar).

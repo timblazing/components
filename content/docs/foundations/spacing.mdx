@@ -1,0 +1,23 @@
+---
+title: Spacing
+description: A 4px grid and the Tailwind spacing scale.
+---
+
+Every gap, padding, and margin is a multiple of 4px — Tailwind's default `--spacing: 0.25rem`. Reach for the steps below; anything in between is a smell.
+
+<SpacingScale />
+
+## Layout
+
+| Use | Value |
+| --- | --- |
+| Inside controls | `px-2.5`–`px-3` (10–12px) |
+| Inside cards and panels | `p-4`–`p-6` (16–24px) |
+| Between related items | `gap-2`–`gap-3` |
+| Between groups | `gap-6`–`gap-8` |
+| Between page sections | `py-16`–`py-24` |
+| Page gutter | `px-4` on phones, `px-6` from `md` |
+| Content width | `max-w-6xl` for apps, `max-w-3xl` for reading |
+
+- Do use `gap` on flex and grid parents instead of margins on children.
+- Do let density follow context: tighter in tables and menus, looser on marketing pages.

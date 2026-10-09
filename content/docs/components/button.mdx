@@ -1,0 +1,56 @@
+---
+title: Button
+description: Triggers an action or event, such as submitting a form or opening a dialog.
+---
+
+<ComponentPreview name="button-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add button
+```
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button"
+```
+
+```tsx
+<Button variant="outline">Button</Button>
+```
+
+## Examples
+
+### Variants
+
+<ComponentPreview name="button-variants" />
+
+### Sizes
+
+<ComponentPreview name="button-sizes" />
+
+### With icon
+
+<ComponentPreview name="button-with-icon" />
+
+### Loading
+
+<ComponentPreview name="button-loading" />
+
+### As link
+
+Use `render` to render a different element with button styles. Set `nativeButton={false}` when the element isn't a `<button>`.
+
+<ComponentPreview name="button-link" />
+
+## Guidelines
+
+- Use one `default` button per view for the primary action. Everything else is `outline`, `secondary`, or `ghost`.
+- Use `destructive` only for actions that delete or can't be undone, and confirm them with an [Alert Dialog](/components/alert-dialog).
+- Give icon-only buttons an `aria-label`.
+
+## API
+
+See the shadcn/ui [Button docs](https://ui.shadcn.com/docs/components/base/button) and Base UI [Button](https://base-ui.com/react/components/button).

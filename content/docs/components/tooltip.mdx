@@ -1,0 +1,54 @@
+---
+title: Tooltip
+description: A short label that appears when hovering or focusing an element.
+---
+
+<ComponentPreview name="tooltip-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add tooltip
+```
+
+## Usage
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+```
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger render={<Button variant="outline" />}>Hover</TooltipTrigger>
+    <TooltipContent>Add to library</TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```
+
+## Examples
+
+### Sides
+
+<ComponentPreview name="tooltip-sides" />
+
+### Icon button
+
+Tooltips are the right place to label icon-only buttons; keep the `aria-label` too.
+
+<ComponentPreview name="tooltip-icon-button" />
+
+## Guidelines
+
+- Keep text to a few words and never put interactive content inside.
+- Wrap related tooltips in one `TooltipProvider` so subsequent tooltips open instantly.
+- Don't rely on a tooltip for critical information; it isn't available on touch devices.
+
+## API
+
+See the shadcn/ui [Tooltip docs](https://ui.shadcn.com/docs/components/base/tooltip) and Base UI [Tooltip](https://base-ui.com/react/components/tooltip).

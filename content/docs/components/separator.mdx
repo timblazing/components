@@ -1,0 +1,44 @@
+---
+title: Separator
+description: A visual divider between sections or items, horizontal or vertical.
+---
+
+<ComponentPreview name="separator-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add separator
+```
+
+## Usage
+
+```tsx
+import { Separator } from "@/components/ui/separator"
+```
+
+```tsx
+<Separator />
+```
+
+## Examples
+
+### Vertical
+
+Set `orientation="vertical"` inside a flex container with a fixed height.
+
+<ComponentPreview name="separator-vertical" />
+
+### In a list
+
+<ComponentPreview name="separator-list" />
+
+## Guidelines
+
+- Use spacing first and a separator only when grouping is still unclear.
+- Vertical separators need a parent with a height, such as `h-5` on a flex row.
+- Separators are decorative by default; use a real heading when the divider introduces a new section.
+
+## API
+
+See the shadcn/ui [Separator docs](https://ui.shadcn.com/docs/components/base/separator) and Base UI [Separator](https://base-ui.com/react/components/separator).

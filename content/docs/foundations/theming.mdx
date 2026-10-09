@@ -1,0 +1,65 @@
+---
+title: Theming
+description: Use these tokens in any project.
+---
+
+<Steps>
+<Step>
+
+### Create a shadcn/ui project with Base UI
+
+```npm
+npx shadcn@latest init -b base -p nova
+```
+
+</Step>
+<Step>
+
+### Replace the theme variables
+
+Copy the `:root` and `.dark` blocks from this site's [`global.css`](https://github.com/timblazing/components/blob/main/src/app/global.css) into your stylesheet, along with the extra `@theme inline` mappings:
+
+```css
+@theme inline {
+  --font-sans: "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: "SF Mono", Menlo, ui-monospace, SFMono-Regular, monospace;
+  --font-display: var(--font-dm-sans), "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-border-strong: var(--border-strong);
+}
+```
+
+</Step>
+<Step>
+
+### Load the display font
+
+```tsx title="app/layout.tsx"
+import { DM_Sans } from "next/font/google"
+
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" })
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={dmSans.variable} suppressHydrationWarning>
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+</Step>
+<Step>
+
+### Add components
+
+Anything from [Components](/components), [Blocks](/blocks), or [Charts](/charts) now picks up the theme.
+
+```npm
+npx shadcn@latest add button card chart
+```
+
+</Step>
+</Steps>

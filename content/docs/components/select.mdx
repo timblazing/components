@@ -1,0 +1,69 @@
+---
+title: Select
+description: Displays a list of options in a popup for the user to pick from.
+---
+
+<ComponentPreview name="select-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add select
+```
+
+## Usage
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+```
+
+```tsx
+<Select items={fruits}>
+  <SelectTrigger className="w-48">
+    <SelectValue placeholder="Select a fruit" />
+  </SelectTrigger>
+  <SelectContent>
+    {fruits.map((f) => (
+      <SelectItem key={f.value} value={f.value}>
+        {f.label}
+      </SelectItem>
+    ))}
+  </SelectContent>
+</Select>
+```
+
+## Examples
+
+### With label
+
+Pass `items` (an array of `{ label, value }`) to `Select` so `SelectValue` shows the label instead of the raw value.
+
+<ComponentPreview name="select-with-label" />
+
+### Sizes
+
+<ComponentPreview name="select-sizes" />
+
+### Disabled
+
+<ComponentPreview name="select-disabled" />
+
+### Invalid
+
+<ComponentPreview name="select-invalid" />
+
+## Guidelines
+
+- Always pass `items` so the trigger shows readable labels.
+- `onValueChange` receives `value | null`. Handle the `null` case.
+- Use a [Combobox](/components/combobox) when the list is long enough to need search.
+
+## API
+
+See the shadcn/ui [Select](https://ui.shadcn.com/docs/components/base/select) and Base UI [Select](https://base-ui.com/react/components/select) docs.

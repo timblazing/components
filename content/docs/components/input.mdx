@@ -1,0 +1,54 @@
+---
+title: Input
+description: A single-line text field for free-form entry.
+---
+
+<ComponentPreview name="input-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add input
+```
+
+## Usage
+
+```tsx
+import { Input } from "@/components/ui/input"
+```
+
+```tsx
+<Input type="email" placeholder="Email" />
+```
+
+## Examples
+
+### With label
+
+Pair inputs with `Field`, `FieldLabel`, and `FieldDescription`.
+
+<ComponentPreview name="input-with-label" />
+
+### Disabled
+
+<ComponentPreview name="input-disabled" />
+
+### Invalid
+
+Set `aria-invalid` on the input and `data-invalid` on the `Field`.
+
+<ComponentPreview name="input-invalid" />
+
+### File
+
+<ComponentPreview name="input-file" />
+
+## Guidelines
+
+- Always provide a visible label. Placeholders aren't labels.
+- Use the right `type` and `inputMode` so mobile keyboards match the content.
+- Explain errors in text next to the field, not with color alone.
+
+## API
+
+See the shadcn/ui [Input](https://ui.shadcn.com/docs/components/base/input) and Base UI [Input](https://base-ui.com/react/components/input) docs.

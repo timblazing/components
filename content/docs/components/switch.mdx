@@ -1,0 +1,46 @@
+---
+title: Switch
+description: A control that turns a setting on or off immediately.
+---
+
+<ComponentPreview name="switch-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add switch
+```
+
+## Usage
+
+```tsx
+import { Switch } from "@/components/ui/switch"
+```
+
+```tsx
+<Switch id="airplane-mode" />
+```
+
+## Examples
+
+### With description
+
+<ComponentPreview name="switch-with-description" />
+
+### Sizes
+
+<ComponentPreview name="switch-sizes" />
+
+### Disabled
+
+<ComponentPreview name="switch-disabled" />
+
+## Guidelines
+
+- Use a switch when the change takes effect immediately. Use a [Checkbox](/components/checkbox) when the user must submit.
+- Label the setting, not the action. Write "Airplane mode", not "Turn on airplane mode".
+- Always associate a label with `htmlFor` and `id`.
+
+## API
+
+See the shadcn/ui [Switch](https://ui.shadcn.com/docs/components/base/switch) and Base UI [Switch](https://base-ui.com/react/components/switch) docs.

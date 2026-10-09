@@ -1,26 +1,22 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
 
 const eslintConfig = defineConfig([
   ...nextVitals,
-  ...nextTs,
-  // Vendored coss/shadcn/mapcn/bklit registry code: keep it identical to upstream so CLI updates stay clean.
   {
-    files: ["src/components/ui/**", "src/components/charts/**", "src/hooks/**"],
+    // Vendored shadcn/ui source, kept as close to upstream as possible.
+    files: ['src/components/ui/**', 'src/hooks/**', 'src/registry/blocks/**'],
     rules: {
-      "react-hooks/refs": "off",
-      "react-hooks/set-state-in-effect": "off",
-      "react-hooks/purity": "off",
+      'react-hooks/set-state-in-effect': 'off',
+      '@next/next/no-img-element': 'off',
     },
   },
-  // Override default ignores of eslint-config-next.
   globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    '.source/**',
   ]),
 ]);
 

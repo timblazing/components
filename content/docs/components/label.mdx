@@ -1,0 +1,44 @@
+---
+title: Label
+description: Names a form control and extends its click target.
+---
+
+<ComponentPreview name="label-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add label
+```
+
+## Usage
+
+```tsx
+import { Label } from "@/components/ui/label"
+```
+
+```tsx
+<Label htmlFor="email">Email</Label>
+```
+
+## Examples
+
+### With input
+
+<ComponentPreview name="label-with-input" />
+
+### Disabled
+
+Add `data-disabled="true"` to a parent with the `group` class to dim the label.
+
+<ComponentPreview name="label-disabled" />
+
+## Guidelines
+
+- Every control needs a label. Use `Label` directly, or `FieldLabel` inside a [Field](/components/field).
+- Keep labels short and written as nouns.
+- Never use a placeholder as the only label.
+
+## API
+
+See the shadcn/ui [Label](https://ui.shadcn.com/docs/components/base/label) and Base UI [Label](https://base-ui.com/react/components/label) docs.

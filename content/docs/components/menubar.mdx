@@ -1,0 +1,55 @@
+---
+title: Menubar
+description: A persistent desktop-style menu bar with keyboard navigation across menus.
+---
+
+<ComponentPreview name="menubar-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add menubar
+```
+
+## Usage
+
+```tsx
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
+```
+
+```tsx
+<Menubar>
+  <MenubarMenu>
+    <MenubarTrigger>File</MenubarTrigger>
+    <MenubarContent>
+      <MenubarItem>New Tab</MenubarItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>
+```
+
+## Examples
+
+### Checkbox and radio items
+
+<ComponentPreview name="menubar-checkbox-radio" />
+
+### Submenu
+
+<ComponentPreview name="menubar-submenu" />
+
+## Guidelines
+
+- Use for application-style command menus; use [Dropdown Menu](/components/dropdown-menu) for a single contextual menu.
+- Show keyboard shortcuts with `MenubarShortcut` for frequent actions.
+- Keep top-level labels to one word.
+
+## API
+
+See the shadcn/ui [Menubar docs](https://ui.shadcn.com/docs/components/base/menubar) and Base UI [Menubar](https://base-ui.com/react/components/menubar).

@@ -1,0 +1,57 @@
+---
+title: Tabs
+description: Layered sections of content, shown one panel at a time.
+---
+
+<ComponentPreview name="tabs-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add tabs
+```
+
+## Usage
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+```
+
+```tsx
+<Tabs defaultValue="account">
+  <TabsList>
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">Account settings.</TabsContent>
+  <TabsContent value="password">Password settings.</TabsContent>
+</Tabs>
+```
+
+## Examples
+
+### Line
+
+Set `variant="line"` on `TabsList` for an underline style.
+
+<ComponentPreview name="tabs-line" />
+
+### Vertical
+
+Set `orientation="vertical"` on `Tabs`.
+
+<ComponentPreview name="tabs-vertical" />
+
+### With icons
+
+<ComponentPreview name="tabs-icons" />
+
+## Guidelines
+
+- Use tabs for peer views of the same content; use navigation links when each view is its own page.
+- Keep labels short and limit to about five tabs.
+- Don't hide required form fields in inactive tabs.
+
+## API
+
+See the shadcn/ui [Tabs docs](https://ui.shadcn.com/docs/components/base/tabs) and Base UI [Tabs](https://base-ui.com/react/components/tabs).

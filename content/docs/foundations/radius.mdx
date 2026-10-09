@@ -1,0 +1,21 @@
+---
+title: Radius
+description: One base radius, with every other step derived from it.
+---
+
+`--radius` is **0.5rem (8px)**. The Tailwind `rounded-*` utilities are multiples of it, so changing one variable reshapes the whole system.
+
+<RadiusScale />
+
+```css
+@theme inline {
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+```
+
+- Do nest radii: an inner element's radius should be the outer radius minus the padding between them.
+- Do use `rounded-full` only for things that are round by nature — avatars, badges, switches, status dots.

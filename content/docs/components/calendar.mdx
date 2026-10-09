@@ -1,0 +1,52 @@
+---
+title: Calendar
+description: A date picker grid for choosing single dates or ranges.
+---
+
+<ComponentPreview name="calendar-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add calendar
+```
+
+## Usage
+
+```tsx
+import { Calendar } from "@/components/ui/calendar"
+```
+
+```tsx
+<Calendar mode="single" selected={date} onSelect={setDate} />
+```
+
+## Examples
+
+### Range
+
+Use `mode="range"` with `numberOfMonths` to show a span.
+
+<ComponentPreview name="calendar-range" />
+
+### Month and year dropdowns
+
+Set `captionLayout="dropdown"` for far-away dates such as birthdays.
+
+<ComponentPreview name="calendar-dropdowns" />
+
+### Disabled dates
+
+Pass matchers to `disabled` to block past dates, weekends, or specific days.
+
+<ComponentPreview name="calendar-disabled" />
+
+## Guidelines
+
+- Disable dates that can't be chosen instead of validating afterward.
+- Use dropdown captions when the target date may be years away.
+- Put the calendar in a [Popover](/components/popover) when space is tight.
+
+## API
+
+See the shadcn/ui [Calendar](https://ui.shadcn.com/docs/components/base/calendar) docs.

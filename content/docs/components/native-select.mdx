@@ -1,0 +1,53 @@
+---
+title: Native Select
+description: A styled wrapper around the browser's built-in select element.
+---
+
+<ComponentPreview name="native-select-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add native-select
+```
+
+## Usage
+
+```tsx
+import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select"
+```
+
+```tsx
+<NativeSelect>
+  <NativeSelectOption value="todo">Todo</NativeSelectOption>
+  <NativeSelectOption value="done">Done</NativeSelectOption>
+</NativeSelect>
+```
+
+## Examples
+
+### Groups
+
+<ComponentPreview name="native-select-groups" />
+
+### Sizes
+
+<ComponentPreview name="native-select-sizes" />
+
+### Disabled
+
+<ComponentPreview name="native-select-disabled" />
+
+### Invalid
+
+<ComponentPreview name="native-select-invalid" />
+
+## Guidelines
+
+- Prefer Native Select on mobile and in simple forms. The OS provides the picker.
+- Use [Select](/components/select) when you need custom option content or styling.
+- Add a disabled placeholder option when there's no sensible default.
+
+## API
+
+See the shadcn/ui [Native Select](https://ui.shadcn.com/docs/components/base/native-select) docs.

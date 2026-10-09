@@ -1,0 +1,52 @@
+---
+title: Sonner
+description: An opinionated toast component for transient feedback.
+---
+
+<ComponentPreview name="sonner-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add sonner
+```
+
+## Usage
+
+```tsx
+import { toast } from "sonner"
+```
+
+```tsx
+toast("Event has been created")
+```
+
+## Examples
+
+### Types
+
+Use `toast.success`, `info`, `warning`, and `error`.
+
+<ComponentPreview name="sonner-types" />
+
+### Action
+
+Add an `action` for undo and similar quick responses.
+
+<ComponentPreview name="sonner-action" />
+
+### Promise
+
+`toast.promise` tracks loading, success, and error states.
+
+<ComponentPreview name="sonner-promise" />
+
+## Guidelines
+
+- Use toasts for confirmation of something that already happened, not for errors that need action.
+- Keep messages under one line when possible.
+- Always offer undo for destructive actions instead of a confirmation toast alone.
+
+## API
+
+See the shadcn/ui [Sonner](https://ui.shadcn.com/docs/components/base/sonner) docs and the [Sonner](https://sonner.emilkowal.ski) documentation. A `<Toaster />` is mounted globally..

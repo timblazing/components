@@ -1,0 +1,46 @@
+---
+title: Skeleton
+description: A placeholder that previews the shape of content while it loads.
+---
+
+<ComponentPreview name="skeleton-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add skeleton
+```
+
+## Usage
+
+```tsx
+import { Skeleton } from "@/components/ui/skeleton"
+```
+
+```tsx
+<Skeleton className="h-4 w-[250px]" />
+```
+
+## Examples
+
+### Card
+
+Match the dimensions of the real content.
+
+<ComponentPreview name="skeleton-card" />
+
+### List
+
+Repeat rows to hint at length.
+
+<ComponentPreview name="skeleton-list" />
+
+## Guidelines
+
+- Match the layout of the loaded content to prevent shifts.
+- Use skeletons for content areas and a [Spinner](/components/spinner) for actions.
+- Don't show a skeleton for more than a few seconds without a fallback.
+
+## API
+
+See the shadcn/ui [Skeleton](https://ui.shadcn.com/docs/components/base/skeleton) docs.

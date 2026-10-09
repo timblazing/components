@@ -1,0 +1,34 @@
+---
+title: Foundations
+description: A monochrome workshop. Neutral surfaces, hairline rules, tight geometric type.
+---
+
+Everything on this site — components, blocks, and charts — is stock [shadcn/ui](https://ui.shadcn.com) on [Base UI](https://base-ui.com), themed through one set of CSS variables. The foundations are those variables and the rules for using them.
+
+<Cards>
+  <Card title="Colors" href="/foundations/colors" description="Neutral surfaces with color reserved for status." />
+  <Card title="Typography" href="/foundations/typography" description="DM Sans for display, SF Pro for everything else." />
+  <Card title="Spacing" href="/foundations/spacing" description="A 4px grid and the Tailwind scale." />
+  <Card title="Radius" href="/foundations/radius" description="One base radius, derived steps." />
+  <Card title="Elevation" href="/foundations/elevation" description="Depth from surfaces and borders, not shadows." />
+  <Card title="Motion" href="/foundations/motion" description="Short, quiet transitions." />
+</Cards>
+
+## Principles
+
+- **Tokens, not values.** Use semantic tokens (`bg-card`, `text-muted-foreground`, `border-border`) so both themes work without overrides.
+- **Color means something.** The palette is neutral. Color is reserved for status — success, warning, error, information — and for data.
+- **Hairlines over shadows.** Separate layers with 1px borders and a step in surface color. Shadows are for things that float: menus, popovers, dialogs.
+- **Compose, don't fork.** Build from the components in `components/ui`. If something is missing, compose it from what exists before writing a new primitive.
+- **Light and dark are equals.** Both follow the system preference and get the same care.
+
+## Stack
+
+| Layer | Library |
+| --- | --- |
+| Primitives | [Base UI](https://base-ui.com) |
+| Components | [shadcn/ui](https://ui.shadcn.com) — `base-nova` style |
+| Styling | [Tailwind CSS v4](https://tailwindcss.com) |
+| Icons | [Lucide](https://lucide.dev) |
+| Charts | [Recharts](https://recharts.org) via the shadcn `chart` component |
+| Docs | [Fumadocs](https://fumadocs.dev) |

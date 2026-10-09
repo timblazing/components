@@ -1,0 +1,55 @@
+---
+title: Charts
+description: Recharts, themed by the design system through the shadcn chart component.
+---
+
+Charts are built with [Recharts](https://recharts.org) and the shadcn [`chart`](https://ui.shadcn.com/docs/components/chart) component, which maps each series to a CSS variable. Series default to the neutral `--chart-1` … `--chart-5` ramp, so charts match the rest of the interface in both themes.
+
+<ComponentPreview name="chart-bar-interactive" className="block p-0 sm:p-0 [&>*]:rounded-none [&>*]:border-0 [&>*]:ring-0" />
+
+## Installation
+
+```npm
+npx shadcn@latest add chart card
+```
+
+Then copy any chart's code from the **Code** tab.
+
+## Anatomy
+
+```tsx
+const chartConfig = {
+  desktop: { label: "Desktop", color: "var(--chart-1)" },
+  mobile: { label: "Mobile", color: "var(--chart-2)" },
+} satisfies ChartConfig
+
+<ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+  <BarChart accessibilityLayer data={chartData}>
+    <CartesianGrid vertical={false} />
+    <XAxis dataKey="month" tickLine={false} axisLine={false} />
+    <ChartTooltip content={<ChartTooltipContent />} />
+    <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+    <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+  </BarChart>
+</ChartContainer>
+```
+
+`ChartContainer` turns each config key into a `--color-<key>` variable, which the series reference. Change a series color in the config, not in the chart.
+
+## Guidelines
+
+- Do start every series at `--chart-1` and step down the ramp.
+- Do reserve status colors (`--success`, `--destructive`) for values that mean good or bad.
+- Do hide the vertical grid and axis lines; let the data carry the chart.
+- Do keep `accessibilityLayer` on for keyboard and screen-reader access.
+- Don't use more than five series in one chart.
+
+<Cards>
+  <Card title="Area" href="/charts/area" />
+  <Card title="Bar" href="/charts/bar" />
+  <Card title="Line" href="/charts/line" />
+  <Card title="Pie" href="/charts/pie" />
+  <Card title="Radar" href="/charts/radar" />
+  <Card title="Radial" href="/charts/radial" />
+  <Card title="Tooltip" href="/charts/tooltip" />
+</Cards>

@@ -1,0 +1,59 @@
+---
+title: Chart
+description: Composable chart primitives built on Recharts.
+---
+
+<ComponentPreview name="graph-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add chart
+```
+
+## Usage
+
+```tsx
+import {
+  type ChartConfig,
+  ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart"
+```
+
+```tsx
+<ChartContainer config={config}>
+  <BarChart data={data}>
+    <XAxis dataKey="month" />
+    <ChartTooltip content={<ChartTooltipContent />} />
+    <Bar dataKey="desktop" fill="var(--color-desktop)" />
+  </BarChart>
+</ChartContainer>
+```
+
+## Examples
+
+### Legend
+
+Add `ChartLegend` for multi-series charts.
+
+<ComponentPreview name="graph-legend" />
+
+### Line
+
+The same primitives work with any Recharts chart.
+
+<ComponentPreview name="graph-line" />
+
+## Guidelines
+
+- Use the `--chart-1` to `--chart-5` tokens; they are a monochrome ramp.
+- Define series in `config` and reference them as `var(--color-<key>)`.
+- For the full gallery of chart types, see [Charts](/charts).
+
+## API
+
+See the shadcn/ui [Chart](https://ui.shadcn.com/docs/components/base/chart) docs and the [Recharts](https://recharts.org) documentation. For the full gallery, see [Charts](/charts).

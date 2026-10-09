@@ -1,0 +1,7 @@
+{
+  "title": "Charts",
+  "description": "Data visualization",
+  "icon": "ChartArea",
+  "root": true,
+  "pages": ["index", "area", "bar", "line", "pie", "radar", "radial", "tooltip"]
+}

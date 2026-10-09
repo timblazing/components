@@ -1,0 +1,52 @@
+---
+title: Spinner
+description: An animated indicator for work in progress.
+---
+
+<ComponentPreview name="spinner-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add spinner
+```
+
+## Usage
+
+```tsx
+import { Spinner } from "@/components/ui/spinner"
+```
+
+```tsx
+<Spinner />
+```
+
+## Examples
+
+### Sizes
+
+Set the size with a `size-*` class.
+
+<ComponentPreview name="spinner-sizes" />
+
+### In a button
+
+Disable the button while loading.
+
+<ComponentPreview name="spinner-button" />
+
+### In an item
+
+Use inside an `Item` for a loading row.
+
+<ComponentPreview name="spinner-item" />
+
+## Guidelines
+
+- Use for short, indeterminate waits; use [Progress](/components/progress) when you can measure.
+- Say what is happening next to it ("Saving changes").
+- Disable the control that triggered the work.
+
+## API
+
+See the shadcn/ui [Spinner](https://ui.shadcn.com/docs/components/base/spinner) docs.

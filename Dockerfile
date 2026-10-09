@@ -1,23 +1,15 @@
 # syntax=docker/dockerfile:1
-FROM oven/bun:1.4.2-alpine AS deps
-WORKDIR /app
-COPY package.json bun.lock ./
-RUN bun install --frozen-lockfile
-
 FROM oven/bun:1.4.2-alpine AS build
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
-COPY --from=deps /app/node_modules ./node_modules
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 COPY . .
 RUN bun run build
 
-FROM node:24-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0
-COPY --from=build --chown=node:node /app/.next/standalone ./
-COPY --from=build --chown=node:node /app/.next/static ./.next/static
-USER node
+FROM nginx:alpine AS runner
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/out /usr/share/nginx/html
 EXPOSE 3000
-HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
   CMD wget -qO- http://127.0.0.1:3000/ >/dev/null || exit 1
-CMD ["node", "server.js"]

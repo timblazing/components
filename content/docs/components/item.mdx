@@ -1,0 +1,69 @@
+---
+title: Item
+description: A flexible row for displaying content with media, text, and actions.
+---
+
+<ComponentPreview name="item-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add item
+```
+
+## Usage
+
+```tsx
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemMedia,
+  ItemSeparator,
+  ItemTitle,
+} from "@/components/ui/item"
+```
+
+```tsx
+<Item variant="outline">
+  <ItemContent>
+    <ItemTitle>Title</ItemTitle>
+    <ItemDescription>Description</ItemDescription>
+  </ItemContent>
+  <ItemActions>
+    <Button size="sm">Action</Button>
+  </ItemActions>
+</Item>
+```
+
+## Examples
+
+### Variants
+
+Use `default`, `outline`, or `muted`.
+
+<ComponentPreview name="item-variants" />
+
+### Group
+
+Combine `ItemGroup` and `ItemSeparator` for lists.
+
+<ComponentPreview name="item-group" />
+
+### As link
+
+Use `render` to turn the whole item into a link.
+
+<ComponentPreview name="item-link" />
+
+## Guidelines
+
+- Use `Item` for list rows and settings; use a [Table](/components/table) for tabular data.
+- Keep descriptions to one or two lines; they are clamped.
+- Put at most one primary action in `ItemActions`.
+
+## API
+
+See the shadcn/ui [Item](https://ui.shadcn.com/docs/components/base/item) docs.

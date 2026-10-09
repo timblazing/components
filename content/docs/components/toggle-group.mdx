@@ -1,0 +1,57 @@
+---
+title: Toggle Group
+description: A set of toggles where one or several can be pressed at a time.
+---
+
+<ComponentPreview name="toggle-group-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add toggle-group
+```
+
+## Usage
+
+```tsx
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+```
+
+```tsx
+<ToggleGroup spacing={0} variant="outline" multiple>
+  <ToggleGroupItem value="bold" aria-label="Toggle bold">
+    <BoldIcon />
+  </ToggleGroupItem>
+  <ToggleGroupItem value="italic" aria-label="Toggle italic">
+    <ItalicIcon />
+  </ToggleGroupItem>
+</ToggleGroup>
+```
+
+## Examples
+
+### Single selection
+
+Omit `multiple` to allow one pressed item at a time. `value` and `defaultValue` are always arrays.
+
+<ComponentPreview name="toggle-group-single" />
+
+### Spacing
+
+Items are separated by default. Set `spacing={0}` to join them.
+
+<ComponentPreview name="toggle-group-spacing" />
+
+### Vertical
+
+<ComponentPreview name="toggle-group-vertical" />
+
+## Guidelines
+
+- Use `multiple` for independent formatting options and a single-select group for mutually exclusive views.
+- Keep groups short, ideally five items or fewer.
+- Give icon-only items an `aria-label`.
+
+## API
+
+See the shadcn/ui [Toggle Group](https://ui.shadcn.com/docs/components/base/toggle-group) and Base UI [Toggle Group](https://base-ui.com/react/components/toggle-group) docs.

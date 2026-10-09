@@ -1,0 +1,56 @@
+---
+title: Alert
+description: Displays a short, important message that doesn't interrupt the user.
+---
+
+<ComponentPreview name="alert-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add alert
+```
+
+## Usage
+
+```tsx
+import { Alert, AlertAction, AlertDescription, AlertTitle } from "@/components/ui/alert"
+```
+
+```tsx
+<Alert>
+  <InfoIcon />
+  <AlertTitle>Heads up</AlertTitle>
+  <AlertDescription>Something worth knowing.</AlertDescription>
+</Alert>
+```
+
+## Examples
+
+### Destructive
+
+Use `variant="destructive"` for errors.
+
+<ComponentPreview name="alert-destructive" />
+
+### Status
+
+Color the icon with a status token to signal warning, success, or info.
+
+<ComponentPreview name="alert-status" />
+
+### With action
+
+Place a control with `AlertAction`.
+
+<ComponentPreview name="alert-action" />
+
+## Guidelines
+
+- Keep alerts inline and persistent; use a [Sonner](/components/sonner) toast for transient feedback.
+- Lead with a short title; the description explains what to do.
+- Reserve `destructive` for errors that block the user.
+
+## API
+
+See the shadcn/ui [Alert](https://ui.shadcn.com/docs/components/base/alert) docs.

@@ -1,0 +1,13 @@
+---
+title: Motion
+description: Short, quiet transitions that confirm an action and get out of the way.
+---
+
+<MotionScale />
+
+Components animate with [`tw-animate-css`](https://github.com/Wombosvideo/tw-animate-css) utilities driven by Base UI's `data-open` / `data-closed` / `data-starting-style` attributes — `fade-in-0`, `zoom-in-95`, and a small `slide-in-from-*` toward the trigger.
+
+- Do use `ease-out` for things entering and `ease-in` for things leaving.
+- Do respect `prefers-reduced-motion` — use `motion-safe:` for anything larger than a fade.
+- Don't animate layout on hover.
+- Don't exceed 300ms for anything the user is waiting on.

@@ -1,0 +1,49 @@
+---
+title: Kbd
+description: Displays a keyboard key or shortcut.
+---
+
+<ComponentPreview name="kbd-demo" />
+
+## Installation
+
+```npm
+npx shadcn@latest add kbd
+```
+
+## Usage
+
+```tsx
+import { Kbd, KbdGroup } from "@/components/ui/kbd"
+```
+
+```tsx
+<KbdGroup>
+  <Kbd>⌘</Kbd>
+  <Kbd>K</Kbd>
+</KbdGroup>
+```
+
+## Examples
+
+### In a button
+
+Place a `Kbd` inside a button to advertise its shortcut.
+
+<ComponentPreview name="kbd-button" />
+
+### In a tooltip
+
+`Kbd` restyles itself inside a tooltip.
+
+<ComponentPreview name="kbd-tooltip" />
+
+## Guidelines
+
+- Use platform-appropriate symbols (`⌘` on macOS, `Ctrl` elsewhere).
+- Group multi-key shortcuts with `KbdGroup`.
+- Only show shortcuts that actually work in the current context.
+
+## API
+
+See the shadcn/ui [Kbd](https://ui.shadcn.com/docs/components/base/kbd) docs.
