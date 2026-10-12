@@ -1,5 +1,6 @@
 import type { BaseLayoutProps, LinkItemType } from 'fumadocs-ui/layouts/shared';
-import { appName, gitConfig } from './shared';
+import { SiteLogo } from '@/components/site-logo';
+import { gitConfig } from './shared';
 
 export const sections = [
   { text: 'Foundations', url: '/foundations' },
@@ -16,7 +17,7 @@ export const navLinks: LinkItemType[] = sections.map((section) => ({
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
-      title: <span className="font-display text-[15px] tracking-tight">{appName}</span>,
+      title: <SiteLogo />,
     },
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
   };

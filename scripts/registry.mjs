@@ -1,10 +1,10 @@
 import { watch } from 'node:fs';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 
-// Generates src/registry/__index__.tsx: a lazy component per example and chart,
+// Generates src/registry/__index__.tsx: a lazy component per chart,
 // so a docs page only loads the previews it renders. `--watch` regenerates on change.
 const root = new URL('../src/registry/', import.meta.url);
-const dirs = ['examples', 'charts'];
+const dirs = ['charts'];
 
 async function entries(dir) {
   const files = (await readdir(new URL(dir, root))).filter((f) => f.endsWith('.tsx')).sort();

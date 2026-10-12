@@ -18,12 +18,12 @@ bun run types:check
 | `content/docs/{foundations,components,blocks,charts}` | MDX pages. Each folder is a top-level tab. |
 | `src/app/global.css` | Theme tokens. The Foundations pages read values from here. |
 | `src/components/ui` | shadcn/ui components, installed with the CLI. |
-| `src/registry/examples` | Component previews, one default export per file. |
-| `src/registry/charts` | Chart previews from the shadcn chart gallery. |
+| `src/components/charts` | Bklit UI chart components, installed from the `@bklit` registry. |
+| `src/registry/charts` | Chart previews (shadcn gallery and Bklit examples), one default export per file. |
 | `src/registry/blocks` | Full-page blocks, rendered at `/view/<name>` and embedded in an iframe. |
 | `scripts/registry.mjs` | Generates the lazy preview index (`src/registry/__index__.tsx`). |
 
-Use a preview in MDX with `<ComponentPreview name="button-demo" />` or `<BlockPreview name="dashboard-01" />`.
+Use a preview in MDX with `<ComponentPreview name="chart-area-default" />` or `<BlockPreview name="dashboard-01" />`. Credit a library with `sources` frontmatter (libraries are listed in `src/lib/libraries.ts`); the page header links to it.
 
 ## Deploy
 

@@ -3,5 +3,15 @@
   "description": "Data visualization",
   "icon": "ChartArea",
   "root": true,
-  "pages": ["index", "area", "bar", "line", "pie", "radar", "radial", "tooltip"]
+  "pages": [
+    "index",
+    "---Cartesian---",
+    "area", "bar", "line", "live-line", "composed", "candlestick", "scatter", "heatmap",
+    "---Radial---",
+    "pie", "ring", "radial", "radar", "gauge", "sunburst",
+    "---Flow & maps---",
+    "funnel", "sankey", "choropleth",
+    "---Utilities---",
+    "tooltip"
+  ]
 }

@@ -1,20 +1,43 @@
 ---
 title: Radar
 description: Radar charts for comparing several variables.
+sources:
+  - library: shadcn
+    url: https://ui.shadcn.com/charts/radar
+  - library: bklit
+    url: https://bklit.com/docs/components/radar-chart
 ---
 
-## Default
+## shadcn/ui
+
+Recharts with the shadcn `chart` component. Install `chart` once, then copy a chart from its **Code** tab.
+
+```npm
+npx shadcn@latest add chart
+```
+
+### Default
 
 <ComponentPreview name="chart-radar-default" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Multiple
+### Multiple
 
 <ComponentPreview name="chart-radar-multiple" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Dots
+### Dots
 
 <ComponentPreview name="chart-radar-dots" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Grid Circle
+### Grid Circle
 
 <ComponentPreview name="chart-radar-grid-circle" className="[&>*]:w-full [&>*]:max-w-md" />
+
+## Bklit UI
+
+<ComponentPreview name="bklit-radar-chart" />
+
+```npm
+npx shadcn@latest add @bklit/radar-chart
+```
+
+Props and more examples are in the [Bklit docs](https://bklit.com/docs/components/radar-chart).

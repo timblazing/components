@@ -1,24 +1,47 @@
 ---
 title: Pie
 description: Pie and donut charts for parts of a whole.
+sources:
+  - library: shadcn
+    url: https://ui.shadcn.com/charts/pie
+  - library: bklit
+    url: https://bklit.com/docs/components/pie-chart
 ---
 
-## Default
+## shadcn/ui
+
+Recharts with the shadcn `chart` component. Install `chart` once, then copy a chart from its **Code** tab.
+
+```npm
+npx shadcn@latest add chart
+```
+
+### Default
 
 <ComponentPreview name="chart-pie-simple" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Donut with Text
+### Donut with Text
 
 <ComponentPreview name="chart-pie-donut-text" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Label
+### Label
 
 <ComponentPreview name="chart-pie-label" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Legend
+### Legend
 
 <ComponentPreview name="chart-pie-legend" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Interactive
+### Interactive
 
 <ComponentPreview name="chart-pie-interactive" className="p-0 sm:p-0 block [&>*]:rounded-none [&>*]:border-0 [&>*]:ring-0" />
+
+## Bklit UI
+
+<ComponentPreview name="bklit-pie-chart" />
+
+```npm
+npx shadcn@latest add @bklit/pie-chart
+```
+
+Props and more examples are in the [Bklit docs](https://bklit.com/docs/components/pie-chart).

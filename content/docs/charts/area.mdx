@@ -1,24 +1,47 @@
 ---
 title: Area
 description: Area charts for volume over time.
+sources:
+  - library: shadcn
+    url: https://ui.shadcn.com/charts/area
+  - library: bklit
+    url: https://bklit.com/docs/components/area-chart
 ---
 
-## Interactive
+## shadcn/ui
+
+Recharts with the shadcn `chart` component. Install `chart` once, then copy a chart from its **Code** tab.
+
+```npm
+npx shadcn@latest add chart
+```
+
+### Interactive
 
 <ComponentPreview name="chart-area-interactive" className="p-0 sm:p-0 block [&>*]:rounded-none [&>*]:border-0 [&>*]:ring-0" />
 
-## Default
+### Default
 
 <ComponentPreview name="chart-area-default" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Gradient
+### Gradient
 
 <ComponentPreview name="chart-area-gradient" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Stacked
+### Stacked
 
 <ComponentPreview name="chart-area-stacked" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Step
+### Step
 
 <ComponentPreview name="chart-area-step" className="[&>*]:w-full [&>*]:max-w-md" />
+
+## Bklit UI
+
+<ComponentPreview name="bklit-area-chart" />
+
+```npm
+npx shadcn@latest add @bklit/area-chart
+```
+
+Props and more examples are in the [Bklit docs](https://bklit.com/docs/components/area-chart).

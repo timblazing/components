@@ -1,21 +1,19 @@
 ---
 title: Charts
-description: Recharts, themed by the design system through the shadcn chart component.
+description: Charts from shadcn/ui and other libraries, themed by the design system.
 ---
 
-Charts are built with [Recharts](https://recharts.org) and the shadcn [`chart`](https://ui.shadcn.com/docs/components/chart) component, which maps each series to a CSS variable. Series default to the neutral `--chart-1` … `--chart-5` ramp, so charts match the rest of the interface in both themes.
+Charts come from more than one library. Each page is a chart type, and every chart credits the library it comes from and installs from there. Series colors map to the neutral `--chart-1` … `--chart-5` ramp, so charts match the rest of the interface in both themes.
 
 <ComponentPreview name="chart-bar-interactive" className="block p-0 sm:p-0 [&>*]:rounded-none [&>*]:border-0 [&>*]:ring-0" />
 
-## Installation
+## shadcn/ui charts
+
+Built with [Recharts](https://recharts.org) and the shadcn [`chart`](https://ui.shadcn.com/docs/components/chart) component, which maps each series to a CSS variable. Install the component, then copy any chart's code from its **Code** tab.
 
 ```npm
 npx shadcn@latest add chart card
 ```
-
-Then copy any chart's code from the **Code** tab.
-
-## Anatomy
 
 ```tsx
 const chartConfig = {
@@ -36,20 +34,22 @@ const chartConfig = {
 
 `ChartContainer` turns each config key into a `--color-<key>` variable, which the series reference. Change a series color in the config, not in the chart.
 
+## Bklit UI charts
+
+[Bklit UI](https://bklit.com) charts are built on visx and Motion, composed from parts (`<AreaChart>`, `<Area>`, `<Grid>`, `<XAxis>`, `<ChartTooltip>`) and installed from the `@bklit` registry. Their colors come from the `--chart-*` tokens in `global.css`.
+
+```npm
+npx shadcn@latest add @bklit/area-chart
+```
+
 ## Guidelines
 
 - Do start every series at `--chart-1` and step down the ramp.
 - Do reserve status colors (`--success`, `--destructive`) for values that mean good or bad.
 - Do hide the vertical grid and axis lines; let the data carry the chart.
-- Do keep `accessibilityLayer` on for keyboard and screen-reader access.
+- Do keep `accessibilityLayer` on Recharts charts for keyboard and screen-reader access.
 - Don't use more than five series in one chart.
 
-<Cards>
-  <Card title="Area" href="/charts/area" />
-  <Card title="Bar" href="/charts/bar" />
-  <Card title="Line" href="/charts/line" />
-  <Card title="Pie" href="/charts/pie" />
-  <Card title="Radar" href="/charts/radar" />
-  <Card title="Radial" href="/charts/radial" />
-  <Card title="Tooltip" href="/charts/tooltip" />
-</Cards>
+## All charts
+
+<PageGrid section="charts" />

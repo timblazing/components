@@ -7,6 +7,8 @@ import { ComponentPreview } from '@/components/preview/component-preview';
 import { ComponentSource } from '@/components/preview/component-source';
 import * as Foundations from '@/components/foundations';
 import { PageGrid } from '@/components/page-grid';
+import { LinkGrid } from '@/components/link-grid';
+import { SourceCredit } from '@/components/source-credit';
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -20,6 +22,8 @@ export function getMDXComponents(components?: MDXComponents) {
     ComponentSource,
     ...Foundations,
     PageGrid,
+    LinkGrid,
+    SourceCredit,
     ...components,
   } satisfies MDXComponents;
 }

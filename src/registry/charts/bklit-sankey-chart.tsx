@@ -1,0 +1,34 @@
+"use client"
+
+// From the bklit package: import { SankeyChart, SankeyLink, SankeyNode, SankeyTooltip } from "@bklitui/ui/charts"
+import { SankeyChart, SankeyLink, SankeyNode, SankeyTooltip } from "@/components/charts"
+
+const data = {
+  nodes: [
+    { name: "Ads" },
+    { name: "Organic" },
+    { name: "Landing" },
+    { name: "Product" },
+    { name: "Checkout" },
+  ],
+  links: [
+    { source: 0, target: 2, value: 40 },
+    { source: 1, target: 2, value: 30 },
+    { source: 2, target: 3, value: 50 },
+    { source: 3, target: 4, value: 35 },
+  ],
+};
+
+export default function Component() {
+  return (
+    <div className="flex w-full items-center justify-center">
+      <div className="w-full max-w-3xl">
+        <SankeyChart data={data} aspectRatio="16 / 9">
+  <SankeyLink />
+  <SankeyNode />
+  <SankeyTooltip />
+</SankeyChart>
+      </div>
+    </div>
+  )
+}

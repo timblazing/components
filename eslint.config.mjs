@@ -11,6 +11,16 @@ const eslintConfig = defineConfig([
       '@next/next/no-img-element': 'off',
     },
   },
+  {
+    // Vendored Bklit UI chart source (animation-heavy; trips the React Compiler lint rules).
+    files: ['src/components/charts/**', 'src/registry/charts/bklit-*'],
+    rules: {
+      'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/refs': 'off',
+      'react-hooks/purity': 'off',
+      'react-hooks/preserve-manual-memoization': 'off',
+    },
+  },
   globalIgnores([
     '.next/**',
     'out/**',

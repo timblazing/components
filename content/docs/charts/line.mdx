@@ -1,24 +1,47 @@
 ---
 title: Line
 description: Line charts for trends.
+sources:
+  - library: shadcn
+    url: https://ui.shadcn.com/charts/line
+  - library: bklit
+    url: https://bklit.com/docs/components/line-chart
 ---
 
-## Interactive
+## shadcn/ui
+
+Recharts with the shadcn `chart` component. Install `chart` once, then copy a chart from its **Code** tab.
+
+```npm
+npx shadcn@latest add chart
+```
+
+### Interactive
 
 <ComponentPreview name="chart-line-interactive" className="p-0 sm:p-0 block [&>*]:rounded-none [&>*]:border-0 [&>*]:ring-0" />
 
-## Default
+### Default
 
 <ComponentPreview name="chart-line-default" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Multiple
+### Multiple
 
 <ComponentPreview name="chart-line-multiple" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Dots
+### Dots
 
 <ComponentPreview name="chart-line-dots" className="[&>*]:w-full [&>*]:max-w-md" />
 
-## Label
+### Label
 
 <ComponentPreview name="chart-line-label" className="[&>*]:w-full [&>*]:max-w-md" />
+
+## Bklit UI
+
+<ComponentPreview name="bklit-line-chart" />
+
+```npm
+npx shadcn@latest add @bklit/line-chart
+```
+
+Props and more examples are in the [Bklit docs](https://bklit.com/docs/components/line-chart).
