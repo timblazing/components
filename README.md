@@ -2,6 +2,20 @@
 
 My personal design system: foundations, components, blocks, and charts, built on [shadcn/ui](https://ui.shadcn.com) (Base UI, `base-nova` style) and documented with [Fumadocs](https://fumadocs.dev).
 
+## Screenshots
+
+**Home · dark theme**
+
+![Design system home page in dark mode](docs/screenshots/home-desktop-dark.png)
+
+**Dashboard block · light theme**
+
+![Dashboard block with sidebar, stat cards, area chart, and data table in light mode](docs/screenshots/dashboard-desktop.png)
+
+**Charts · dark theme**
+
+![Chart documentation with an interactive bar chart in dark mode](docs/screenshots/charts-desktop-dark.png)
+
 ## Develop
 
 ```sh
