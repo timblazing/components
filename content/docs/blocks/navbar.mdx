@@ -1,0 +1,20 @@
+---
+title: Navbar
+description: A sticky navbar with inline links on desktop that folds into a drop-down panel on mobile.
+full: true
+sources:
+  - library: fumadocs
+    url: https://github.com/fuma-nama/fumadocs/blob/main/packages/base-ui/src/layouts/home/slots/header.tsx
+---
+
+<BlockPreview name="navbar-01" />
+
+## Installation
+
+Copy the files above into your app, then add the components they use:
+
+```npm
+npx shadcn@latest add button collapsible kbd command
+```
+
+The theme toggle needs [`next-themes`](https://github.com/pacocoursey/next-themes). Search is optional: pass `onSearch` to show the search button and bind <kbd>⌘</kbd> <kbd>K</kbd>.

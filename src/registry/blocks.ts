@@ -1,48 +1,102 @@
 import type { ComponentType } from 'react';
-import Dashboard01 from './blocks/dashboard-01/page';
-import Login03 from './blocks/login-03/page';
-import Login04 from './blocks/login-04/page';
-import Sidebar07 from './blocks/sidebar-07/page';
-import Sidebar08 from './blocks/sidebar-08/page';
-import Signup03 from './blocks/signup-03/page';
 
 export interface Block {
   title: string;
-  description: string;
-  Component: ComponentType;
+  /** Centers a block that isn't a full page, as blocks.so previews do. */
+  centered?: boolean;
+  /** Imported on demand so each preview only loads its own block. */
+  load: () => Promise<{ default: ComponentType }>;
 }
 
 export const blocks = {
-  'dashboard-01': {
-    title: 'Dashboard',
-    description: 'A dashboard with sidebar, charts, and a data table.',
-    Component: Dashboard01,
-  },
-  'sidebar-07': {
-    title: 'Collapsible sidebar',
-    description: 'A sidebar that collapses to icons.',
-    Component: Sidebar07,
-  },
-  'sidebar-08': {
-    title: 'Inset sidebar',
-    description: 'An inset sidebar with secondary navigation.',
-    Component: Sidebar08,
-  },
-  'login-03': {
-    title: 'Login',
-    description: 'A login page on a muted background.',
-    Component: Login03,
-  },
-  'login-04': {
-    title: 'Login with image',
-    description: 'A two-column login page with form and image.',
-    Component: Login04,
-  },
-  'signup-03': {
-    title: 'Sign up',
-    description: 'A sign-up page on a muted background.',
-    Component: Signup03,
-  },
+  'dashboard-01': { title: 'Dashboard', load: () => import('./blocks/dashboard-01/page') },
+  'blocks-so-dashboard-01': { title: 'Dashboard with Revenue and Customers', load: () => import('./blocks/blocks-so-dashboard-01/page') },
+  'navbar-01': { title: 'Navbar', load: () => import('./blocks/navbar-01/page') },
+  'sidebar-07': { title: 'Collapsible sidebar', load: () => import('./blocks/sidebar-07/page') },
+  'sidebar-08': { title: 'Inset sidebar', load: () => import('./blocks/sidebar-08/page') },
+  'sidebar-01': { title: 'Sidebar Collapsible Sections', load: () => import('./blocks/sidebar-01/page') },
+  'sidebar-02': { title: 'Sidebar Dashboard Inset', load: () => import('./blocks/sidebar-02/page') },
+  'sidebar-03': { title: 'Sidebar Dashboard Floating', load: () => import('./blocks/sidebar-03/page') },
+  'sidebar-04': { title: 'Sidebar Double-Sided Mail', load: () => import('./blocks/sidebar-04/page') },
+  'sidebar-05': { title: 'Sidebar Double-Sided', load: () => import('./blocks/sidebar-05/page') },
+  'sidebar-06': { title: 'Sidebar Replacement', load: () => import('./blocks/sidebar-06/page') },
+  'stats-01': { title: 'Stats with Trending', centered: true, load: () => import('./blocks/stats-01/page') },
+  'stats-02': { title: 'Stats with Borders', centered: true, load: () => import('./blocks/stats-02/page') },
+  'stats-03': { title: 'Stats with Card Layout', centered: true, load: () => import('./blocks/stats-03/page') },
+  'stats-04': { title: 'Stats with Badges', centered: true, load: () => import('./blocks/stats-04/page') },
+  'stats-05': { title: 'Stats with Links', centered: true, load: () => import('./blocks/stats-05/page') },
+  'stats-06': { title: 'Stats with Status', centered: true, load: () => import('./blocks/stats-06/page') },
+  'stats-07': { title: 'Stats with Circular Progress', centered: true, load: () => import('./blocks/stats-07/page') },
+  'stats-08': { title: 'Stats with Circular Progress and Links', centered: true, load: () => import('./blocks/stats-08/page') },
+  'stats-09': { title: 'Stats with Progress', centered: true, load: () => import('./blocks/stats-09/page') },
+  'stats-10': { title: 'Stats with Area Chart', centered: true, load: () => import('./blocks/stats-10/page') },
+  'stats-11': { title: 'Stats Dashboard with Progress Bars', centered: true, load: () => import('./blocks/stats-11/page') },
+  'stats-12': { title: 'Stats Usage Dashboard', centered: true, load: () => import('./blocks/stats-12/page') },
+  'stats-13': { title: 'Stats with Segmented Progress', centered: true, load: () => import('./blocks/stats-13/page') },
+  'stats-14': { title: 'Stats with Usage Breakdown', centered: true, load: () => import('./blocks/stats-14/page') },
+  'stats-15': { title: 'Stats with Value Breakdown', centered: true, load: () => import('./blocks/stats-15/page') },
+  'table-01': { title: 'Table with Accordion', centered: true, load: () => import('./blocks/table-01/page') },
+  'table-02': { title: 'Table with Actions', centered: true, load: () => import('./blocks/table-02/page') },
+  'table-03': { title: 'Table with Filters', centered: true, load: () => import('./blocks/table-03/page') },
+  'table-04': { title: 'Table with Grouped Rows', centered: true, load: () => import('./blocks/table-04/page') },
+  'table-05': { title: 'Data Table', centered: true, load: () => import('./blocks/table-05/page') },
+  'grid-list-01': { title: 'Grid List with Dropdown', centered: true, load: () => import('./blocks/grid-list-01/page') },
+  'grid-list-02': { title: 'Grid List with Links', centered: true, load: () => import('./blocks/grid-list-02/page') },
+  'grid-list-03': { title: 'Grid List with Icons', centered: true, load: () => import('./blocks/grid-list-03/page') },
+  'dialog-01': { title: 'Dialog Confirmation', centered: true, load: () => import('./blocks/dialog-01/page') },
+  'dialog-02': { title: 'Dialog with Warning Icon', centered: true, load: () => import('./blocks/dialog-02/page') },
+  'dialog-03': { title: 'Dialog with Input Field', centered: true, load: () => import('./blocks/dialog-03/page') },
+  'dialog-04': { title: 'Dialog with Two Buttons', centered: true, load: () => import('./blocks/dialog-04/page') },
+  'dialog-05': { title: 'Dialog with Password Confirmation', centered: true, load: () => import('./blocks/dialog-05/page') },
+  'dialog-06': { title: 'Dialog with Privacy Toggle', centered: true, load: () => import('./blocks/dialog-06/page') },
+  'dialog-07': { title: 'Dialog with Member List', centered: true, load: () => import('./blocks/dialog-07/page') },
+  'dialog-08': { title: 'Dialog with Email and Password Fields', centered: true, load: () => import('./blocks/dialog-08/page') },
+  'dialog-09': { title: 'Dialog with Link Share and Toggles', centered: true, load: () => import('./blocks/dialog-09/page') },
+  'dialog-10': { title: 'Dialog with Calendar and Time Picker', centered: true, load: () => import('./blocks/dialog-10/page') },
+  'dialog-11': { title: 'Dialog Multi-Step Wizard', centered: true, load: () => import('./blocks/dialog-11/page') },
+  'dialog-12': { title: 'Dialog with Avatar Upload', centered: true, load: () => import('./blocks/dialog-12/page') },
+  'command-menu-01': { title: 'Command Menu with Groups', centered: true, load: () => import('./blocks/command-menu-01/page') },
+  'command-menu-02': { title: 'Command Menu with Keyboard Shortcuts', centered: true, load: () => import('./blocks/command-menu-02/page') },
+  'command-menu-03': { title: 'Command Menu with Documentation Search', centered: true, load: () => import('./blocks/command-menu-03/page') },
+  'command-menu-04': { title: 'Command Menu with Global Search', centered: true, load: () => import('./blocks/command-menu-04/page') },
+  'chat-01': { title: 'Chat Basic', centered: true, load: () => import('./blocks/chat-01/page') },
+  'chat-02': { title: 'Chat with Model Menu', centered: true, load: () => import('./blocks/chat-02/page') },
+  'chat-03': { title: 'Chat Application', load: () => import('./blocks/chat-03/page') },
+  'ai-01': { title: 'AI Chat with Voice Input', centered: true, load: () => import('./blocks/ai-01/page') },
+  'ai-02': { title: 'AI Chat with Model Selection', centered: true, load: () => import('./blocks/ai-02/page') },
+  'ai-03': { title: 'AI Chat Compact Interface', centered: true, load: () => import('./blocks/ai-03/page') },
+  'ai-04': { title: 'AI Chat with File Attachments', centered: true, load: () => import('./blocks/ai-04/page') },
+  'ai-05': { title: 'AI Elements Chat', centered: true, load: () => import('./blocks/ai-05/page') },
+  'form-layout-01': { title: 'Form with Workspace Fields', centered: true, load: () => import('./blocks/form-layout-01/page') },
+  'form-layout-02': { title: 'Form with Side Labels', centered: true, load: () => import('./blocks/form-layout-02/page') },
+  'form-layout-03': { title: 'Form with Checkbox Settings', centered: true, load: () => import('./blocks/form-layout-03/page') },
+  'form-layout-04': { title: 'Form with Package Selection', centered: true, load: () => import('./blocks/form-layout-04/page') },
+  'form-layout-05': { title: 'Form with Plan Selection', centered: true, load: () => import('./blocks/form-layout-05/page') },
+  'file-upload-01': { title: 'File Upload with Preview', centered: true, load: () => import('./blocks/file-upload-01/page') },
+  'file-upload-02': { title: 'File Upload Simple', centered: true, load: () => import('./blocks/file-upload-02/page') },
+  'file-upload-03': { title: 'File Upload Multi-File Dropzone', centered: true, load: () => import('./blocks/file-upload-03/page') },
+  'file-upload-04': { title: 'File Upload Drag & Drop', centered: true, load: () => import('./blocks/file-upload-04/page') },
+  'file-upload-05': { title: 'File Upload with Progress', centered: true, load: () => import('./blocks/file-upload-05/page') },
+  'file-upload-06': { title: 'File Upload with Status Sections', centered: true, load: () => import('./blocks/file-upload-06/page') },
+  'onboarding-01': { title: 'Onboarding', centered: true, load: () => import('./blocks/onboarding-01/page') },
+  'onboarding-02': { title: 'Onboarding Workspace Setup', centered: true, load: () => import('./blocks/onboarding-02/page') },
+  'onboarding-03': { title: 'Onboarding Steps with Progress', centered: true, load: () => import('./blocks/onboarding-03/page') },
+  'onboarding-04': { title: 'Onboarding Accordion', centered: true, load: () => import('./blocks/onboarding-04/page') },
+  'onboarding-05': { title: 'Onboarding Activity Feed', centered: true, load: () => import('./blocks/onboarding-05/page') },
+  'onboarding-06': { title: 'Onboarding Timeline', centered: true, load: () => import('./blocks/onboarding-06/page') },
+  'onboarding-07': { title: 'Onboarding Deploy Pipeline', centered: true, load: () => import('./blocks/onboarding-07/page') },
+  'login-03': { title: 'Login', load: () => import('./blocks/login-03/page') },
+  'login-04': { title: 'Login with image', load: () => import('./blocks/login-04/page') },
+  'signup-03': { title: 'Sign up', load: () => import('./blocks/signup-03/page') },
+  'login-01': { title: 'Login with Email and Google', centered: true, load: () => import('./blocks/login-01/page') },
+  'login-02': { title: 'Login with Email, Password and Google', centered: true, load: () => import('./blocks/login-02/page') },
+  'blocks-so-login-03': { title: 'Login with Email and Password', centered: true, load: () => import('./blocks/blocks-so-login-03/page') },
+  'blocks-so-login-04': { title: 'Login with Social Buttons', centered: true, load: () => import('./blocks/blocks-so-login-04/page') },
+  'login-05': { title: 'Login Card Signup Form', centered: true, load: () => import('./blocks/login-05/page') },
+  'login-06': { title: 'Login with Magic Link and SSO', centered: true, load: () => import('./blocks/login-06/page') },
+  'login-07': { title: 'Login Full Page with Icons', centered: true, load: () => import('./blocks/login-07/page') },
+  'login-08': { title: 'Login with SSO', centered: true, load: () => import('./blocks/login-08/page') },
+  'login-09': { title: 'Login Signup with Role Selection', centered: true, load: () => import('./blocks/login-09/page') },
 } satisfies Record<string, Block>;
 
 export type BlockName = keyof typeof blocks;

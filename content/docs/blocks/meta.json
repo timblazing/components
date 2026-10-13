@@ -3,5 +3,25 @@
   "description": "Composed layouts",
   "icon": "LayoutDashboard",
   "root": true,
-  "pages": ["index", "---Application---", "dashboard-01", "sidebar-07", "sidebar-08", "---Authentication---", "login-03", "login-04", "signup-03"]
+  "pages": [
+    "index",
+    "---Application---",
+    "dashboard",
+    "navbar",
+    "sidebar",
+    "stats",
+    "tables",
+    "grid-list",
+    "dialogs",
+    "command-menu",
+    "---AI---",
+    "ai-chat",
+    "ai-components",
+    "---Forms---",
+    "form-layout",
+    "file-upload",
+    "onboarding",
+    "---Authentication---",
+    "login"
+  ]
 }

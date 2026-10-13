@@ -22,9 +22,12 @@ type Viewport = keyof typeof viewports;
 
 export function BlockViewer({
   name,
+  height = 720,
   files,
 }: {
   name: string;
+  /** Preview height in pixels; the iframe scrolls past it. */
+  height?: number;
   files: { path: string; code: ReactNode }[];
 }) {
   const [tab, setTab] = useState<'preview' | 'code'>('preview');
@@ -82,8 +85,8 @@ export function BlockViewer({
 
       <div hidden={tab !== 'preview'} className="rounded-xl border bg-muted/40 p-0 md:p-2">
         <div
-          className="mx-auto h-[720px] overflow-hidden rounded-lg border bg-background transition-[width] duration-250 ease-out max-md:rounded-none max-md:border-0"
-          style={{ width: viewports[viewport].width, maxWidth: '100%' }}
+          className="mx-auto overflow-hidden rounded-lg border bg-background transition-[width] duration-250 ease-out max-md:rounded-none max-md:border-0"
+          style={{ width: viewports[viewport].width, maxWidth: '100%', height }}
         >
           <iframe
             key={reloadKey}
