@@ -41,4 +41,11 @@ Use a preview in MDX with `<ComponentPreview name="chart-area-default" />` or `<
 
 ## Deploy
 
-The site is a static export (`output: 'export'`). Pushing to `main` builds `ghcr.io/timblazing/components` (nginx serving `out/` on port 3000) via `.github/workflows/docker.yml`; run it with `docker compose up -d`. Set `NEXT_PUBLIC_SITE_URL` to the production URL.
+The site is a static export (`output: 'export'`) hosted on Cloudflare Pages at https://components.blasingame.dev. Pages is connected to this repo and builds every push to `main`:
+
+| Setting | Value |
+| --- | --- |
+| Build command | `bun run build` |
+| Output directory | `out` |
+
+`public/_headers` sets long-lived caching for `/_next/static/*`. `NEXT_PUBLIC_SITE_URL` overrides the canonical URL (defaults to `https://components.blasingame.dev`). Preview the export locally with `bun run build && bun run start`.
