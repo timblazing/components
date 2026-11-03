@@ -1,13 +1,13 @@
 ---
 title: Typography
-description: Geist for UI, Geist Mono for code, Geist Serif for display.
+description: Geist for display and UI, Geist Mono for code.
 ---
 
 ## Families
 
 <FontFamilies />
 
-All three families are bundled by the `geist` package and self-hosted with `next/font/local`. Geist Sans powers UI, body text, and component headings through `--font-sans` and `--font-heading`. Geist Mono powers code, tokens, and chart annotations through `--font-mono`. Geist Serif uses the regular round-dot variant for page titles and hero text through `--font-serif`, also aliased as `--font-display`. Every page, including standalone block previews, inherits these fonts from the root layout.
+Both families are bundled by the `geist` package and self-hosted with `next/font/local`. Geist Sans powers UI, body text, component headings, and display titles through `--font-sans`, `--font-heading`, and `--font-display`. Geist Mono powers code, tokens, and chart annotations through `--font-mono`. Every page, including standalone block previews, inherits these fonts from the root layout.
 
 ## Scale
 
@@ -21,7 +21,7 @@ All three families are bundled by the `geist` package and self-hosted with `next
 <code className="font-mono text-[13px] tabular-nums">96.8%</code>
 ```
 
-- Do keep display type at its native weight 400 with tight tracking.
+- Do keep display type at weight 500 with tight tracking.
 - Do use `tabular-nums` anywhere numbers line up: tables, stats, charts.
 - Don't use the display face below 30px or for UI labels.
 - Don't use more than two weights in one view.

@@ -48,8 +48,8 @@ export function ColorPairs({ pairs }: { pairs: [surface: string, text: string][]
 }
 
 const typeScale = [
-  { name: 'Display', className: 'font-display text-5xl leading-none tracking-[-0.05em] sm:text-6xl', spec: 'Geist Serif · 48–72 · 400 · −0.05em', sample: 'Build it once.' },
-  { name: 'Heading 1', className: 'font-display text-4xl leading-tight tracking-[-0.04em]', spec: 'Geist Serif · 36 · 400 · −0.04em', sample: 'Foundations first' },
+  { name: 'Display', className: 'font-display text-5xl leading-none tracking-[-0.05em] sm:text-6xl', spec: 'Geist · 48–72 · 500 · −0.05em', sample: 'Build it once.' },
+  { name: 'Heading 1', className: 'font-display text-4xl leading-tight tracking-[-0.04em]', spec: 'Geist · 36 · 500 · −0.04em', sample: 'Foundations first' },
   { name: 'Heading 2', className: 'text-2xl font-semibold tracking-tight', spec: 'Geist · 24 · 600 · −0.025em', sample: 'Components that compose' },
   { name: 'Heading 3', className: 'text-xl font-semibold tracking-tight', spec: 'Geist · 20 · 600', sample: 'Blocks and charts' },
   { name: 'Body', className: 'text-base leading-7', spec: 'Geist · 16 · 400 · 1.75', sample: 'Every surface, control, and chart pulls from the same tokens, so both themes stay in step without per-component overrides.' },
@@ -76,7 +76,7 @@ export function TypeScale() {
 
 export function FontFamilies() {
   const families = [
-    { name: 'Display', token: '--font-display', className: 'font-display', stack: 'Geist Serif, ui-serif, serif', use: 'Page titles and hero type only.' },
+    { name: 'Display', token: '--font-display', className: 'font-display', stack: 'Geist, system-ui, sans-serif', use: 'Page titles and hero type only.' },
     { name: 'Sans', token: '--font-sans', className: 'font-sans', stack: 'Geist, system-ui, sans-serif', use: 'Everything else: UI, body, labels.' },
     { name: 'Mono', token: '--font-mono', className: 'font-mono', stack: 'Geist Mono, ui-monospace, monospace', use: 'Code, tokens, measurements.' },
   ];

@@ -10,7 +10,7 @@ function FoundationsShowcase() {
     <div className="flex w-full max-w-64 flex-col gap-5">
       <div className="flex items-end gap-4">
         <span className="font-display text-6xl leading-none tracking-[-0.05em]">Aa</span>
-        <span className="pb-1 font-mono text-xs text-muted-foreground">Geist · Geist Mono · Geist Serif</span>
+        <span className="pb-1 font-mono text-xs text-muted-foreground">Geist · Geist Mono</span>
       </div>
       <div className="grid grid-cols-6 overflow-hidden rounded-lg border">
         {swatches.map((token) => (

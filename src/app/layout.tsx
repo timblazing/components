@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { GeistSerifRegular } from 'geist/font/serif/regular';
 import { Provider } from '@/components/provider';
 import { appName, siteUrl } from '@/lib/shared';
 import './global.css';
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${GeistSerifRegular.variable} antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} antialiased`} suppressHydrationWarning>
       <body className="flex min-h-screen flex-col">
         <Provider>{children}</Provider>
       </body>
