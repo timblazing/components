@@ -304,7 +304,7 @@ export function LiveLine({
             />
             <text
               fill="var(--popover-foreground)"
-              fontFamily="SF Mono, Menlo, Monaco, monospace"
+              fontFamily="var(--font-mono)"
               fontSize={11}
               fontWeight={500}
               x={8}

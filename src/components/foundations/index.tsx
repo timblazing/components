@@ -48,14 +48,14 @@ export function ColorPairs({ pairs }: { pairs: [surface: string, text: string][]
 }
 
 const typeScale = [
-  { name: 'Display', className: 'font-display text-5xl leading-none tracking-[-0.05em] sm:text-6xl', spec: 'DM Sans · 48–72 · 500 · −0.05em', sample: 'Build it once.' },
-  { name: 'Heading 1', className: 'font-display text-4xl font-medium leading-tight tracking-[-0.04em]', spec: 'DM Sans · 36 · 500 · −0.04em', sample: 'Foundations first' },
-  { name: 'Heading 2', className: 'text-2xl font-semibold tracking-tight', spec: 'SF Pro · 24 · 600 · −0.025em', sample: 'Components that compose' },
-  { name: 'Heading 3', className: 'text-xl font-semibold tracking-tight', spec: 'SF Pro · 20 · 600', sample: 'Blocks and charts' },
-  { name: 'Body', className: 'text-base leading-7', spec: 'SF Pro · 16 · 400 · 1.75', sample: 'Every surface, control, and chart pulls from the same tokens, so both themes stay in step without per-component overrides.' },
-  { name: 'Small', className: 'text-sm leading-6', spec: 'SF Pro · 14 · 400', sample: 'Used inside panels, tables, and menus.' },
-  { name: 'Caption', className: 'text-xs text-muted-foreground', spec: 'SF Pro · 12 · 400', sample: 'Updated 2 minutes ago' },
-  { name: 'Mono', className: 'font-mono text-[13px] tabular-nums', spec: 'SF Mono / Menlo · 13 · tabular', sample: '0123456789  96.8%  --border' },
+  { name: 'Display', className: 'font-display text-5xl leading-none tracking-[-0.05em] sm:text-6xl', spec: 'Geist · 48–72 · 500 · −0.05em', sample: 'Build it once.' },
+  { name: 'Heading 1', className: 'font-display text-4xl leading-tight tracking-[-0.04em]', spec: 'Geist · 36 · 500 · −0.04em', sample: 'Foundations first' },
+  { name: 'Heading 2', className: 'text-2xl font-semibold tracking-tight', spec: 'Geist · 24 · 600 · −0.025em', sample: 'Components that compose' },
+  { name: 'Heading 3', className: 'text-xl font-semibold tracking-tight', spec: 'Geist · 20 · 600', sample: 'Blocks and charts' },
+  { name: 'Body', className: 'text-base leading-7', spec: 'Geist · 16 · 400 · 1.75', sample: 'Every surface, control, and chart pulls from the same tokens, so both themes stay in step without per-component overrides.' },
+  { name: 'Small', className: 'text-sm leading-6', spec: 'Geist · 14 · 400', sample: 'Used inside panels, tables, and menus.' },
+  { name: 'Caption', className: 'text-xs text-muted-foreground', spec: 'Geist · 12 · 400', sample: 'Updated 2 minutes ago' },
+  { name: 'Mono', className: 'font-mono text-[13px] tabular-nums', spec: 'Geist Mono · 13 · tabular', sample: '0123456789  96.8%  --border' },
 ];
 
 export function TypeScale() {
@@ -76,9 +76,9 @@ export function TypeScale() {
 
 export function FontFamilies() {
   const families = [
-    { name: 'Display', token: '--font-display', className: 'font-display', stack: 'DM Sans, SF Pro Display, system-ui', use: 'Page titles and hero type only.' },
-    { name: 'Sans', token: '--font-sans', className: 'font-sans', stack: 'SF Pro Text, SF Pro, -apple-system, system-ui', use: 'Everything else: UI, body, labels.' },
-    { name: 'Mono', token: '--font-mono', className: 'font-mono', stack: 'SF Mono, Menlo, ui-monospace', use: 'Code, tokens, measurements.' },
+    { name: 'Display', token: '--font-display', className: 'font-display', stack: 'Geist, system-ui, sans-serif', use: 'Page titles and hero type only.' },
+    { name: 'Sans', token: '--font-sans', className: 'font-sans', stack: 'Geist, system-ui, sans-serif', use: 'Everything else: UI, body, labels.' },
+    { name: 'Mono', token: '--font-mono', className: 'font-mono', stack: 'Geist Mono, ui-monospace, monospace', use: 'Code, tokens, measurements.' },
   ];
   return (
     <div className="not-prose my-6 grid gap-3 md:grid-cols-3">

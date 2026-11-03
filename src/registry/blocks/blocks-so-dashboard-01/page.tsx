@@ -35,7 +35,7 @@ export default function Page() {
 
   return (
     <SidebarProvider
-      className="isolate min-h-dvh bg-background font-sans text-foreground antialiased [--chart-1:#3b82f6] [--chart-2:#d4d4d8] [--font-sans:system-ui,sans-serif] [--sidebar-width-icon:3.5rem]! [--sidebar-width:15.5rem]! **:data-[slot=sidebar-group-label]:transition-none **:data-[slot=sidebar-menu-button]:transition-none **:data-[slot=sidebar-container]:ease-[cubic-bezier(0.23,1,0.32,1)] **:data-[slot=sidebar-gap]:ease-[cubic-bezier(0.23,1,0.32,1)] dark:[--chart-2:#3f3f46] dark:[--sidebar-accent:#1a1a1a] dark:[--sidebar:#0d0d0d]"
+      className="isolate min-h-dvh bg-background font-sans text-foreground antialiased [--chart-1:#3b82f6] [--chart-2:#d4d4d8] [--sidebar-width-icon:3.5rem]! [--sidebar-width:15.5rem]! **:data-[slot=sidebar-group-label]:transition-none **:data-[slot=sidebar-menu-button]:transition-none **:data-[slot=sidebar-container]:ease-[cubic-bezier(0.23,1,0.32,1)] **:data-[slot=sidebar-gap]:ease-[cubic-bezier(0.23,1,0.32,1)] dark:[--chart-2:#3f3f46] dark:[--sidebar-accent:#1a1a1a] dark:[--sidebar:#0d0d0d]"
       defaultOpen={false}
     >
       <a

@@ -17,10 +17,10 @@ html > body[data-scroll-locked] {
 }
 
 @theme inline {
-  --font-sans: "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
-  --font-mono: "SF Mono", Menlo, ui-monospace, SFMono-Regular, monospace;
-  --font-display: var(--font-dm-sans), "SF Pro Display", -apple-system, system-ui, sans-serif;
-  --font-heading: var(--font-display);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-sans);
+  --font-heading: var(--font-sans);
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-info: var(--info);
@@ -228,11 +228,12 @@ html > body[data-scroll-locked] {
   code,
   kbd,
   pre {
+    @apply font-mono;
     font-variant-numeric: tabular-nums;
   }
 }
 
-/* Page titles use the display face; everything else stays on SF Pro. */
+/* Page titles, UI, and body text share Geist Sans. */
 
 .font-display {
   font-family: var(--font-display);
