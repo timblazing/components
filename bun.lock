@@ -42,6 +42,7 @@
         "fumadocs-core": "16.17.1",
         "fumadocs-mdx": "15.4.7",
         "fumadocs-ui": "npm:@fumadocs/base-ui@16.17.1",
+        "geist": "1.9.0",
         "input-otp": "^1.5.0",
         "lucide-react": "^1.50.0",
         "motion": "^14.1.0",
@@ -1108,6 +1109,8 @@
     "functions-have-names": ["functions-have-names@1.2.3", "", {}, "sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ=="],
 
     "fuzzysort": ["fuzzysort@3.1.0", "", {}, "sha512-sR9BNCjBg6LNgwvxlBd0sBABvQitkLzoVY9MYYROQVX/FvfJ4Mai9LsGhDgd8qYdds0bY77VzYd5iuB+v5rwQQ=="],
+
+    "geist": ["geist@1.9.0", "", { "peerDependencies": { "next": ">=13.2.0" } }, "sha512-uxiyxH5PaKDaK2//ln06NxJEz5gc6771BTwSs1YFgNnASGtp1SYD3VZShSIijvlNwDjMgHnzqye4MmIUTspEzw=="],
 
     "generator-function": ["generator-function@2.0.1", "", {}, "sha512-SFdFmIJi+ybC0vjlHN0ZGVGHc3lgE0DxPAT0djjVg+kjOnSqclqmj0KQ7ykTOLP6YxoqOvuAODGdcHJn+43q3g=="],
 

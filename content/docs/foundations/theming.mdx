@@ -21,9 +21,11 @@ Copy the `:root` and `.dark` blocks from this site's [`global.css`](https://gith
 
 ```css
 @theme inline {
-  --font-sans: "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-mono: "SF Mono", Menlo, ui-monospace, SFMono-Regular, monospace;
-  --font-display: var(--font-dm-sans), "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-geist-serif-regular), ui-serif, serif;
+  --font-display: var(--font-serif);
+  --font-heading: var(--font-sans);
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-info: var(--info);
@@ -34,19 +36,40 @@ Copy the `:root` and `.dark` blocks from this site's [`global.css`](https://gith
 </Step>
 <Step>
 
-### Load the display font
+### Load the font families
+
+Install the bundled fonts so builds do not depend on a font CDN:
+
+```npm
+npm install geist
+```
 
 ```tsx title="app/layout.tsx"
-import { DM_Sans } from "next/font/google"
-
-const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" })
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
+import { GeistSerifRegular } from "geist/font/serif/regular"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={dmSans.variable} suppressHydrationWarning>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${GeistSerifRegular.variable}`} suppressHydrationWarning>
       <body>{children}</body>
     </html>
   )
+}
+```
+
+Apply the font roles in your stylesheet:
+
+```css
+@layer base {
+  html { @apply font-sans; }
+  code, kbd, pre { @apply font-mono; }
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.04em;
 }
 ```
 

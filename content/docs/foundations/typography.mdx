@@ -1,13 +1,13 @@
 ---
 title: Typography
-description: DM Sans for display, SF Pro for everything else, Menlo for numbers.
+description: Geist for UI, Geist Mono for code, Geist Serif for display.
 ---
 
 ## Families
 
 <FontFamilies />
 
-DM Sans is loaded with `next/font` and exposed as `--font-display`. SF Pro and SF Mono resolve from the system on Apple platforms and fall back to the platform UI font elsewhere, so there is nothing to download for body text.
+All three families are bundled by the `geist` package and self-hosted with `next/font/local`. Geist Sans powers UI, body text, and component headings through `--font-sans` and `--font-heading`. Geist Mono powers code, tokens, and chart annotations through `--font-mono`. Geist Serif uses the regular round-dot variant for page titles and hero text through `--font-serif`, also aliased as `--font-display`. Every page, including standalone block previews, inherits these fonts from the root layout.
 
 ## Scale
 
@@ -16,12 +16,12 @@ DM Sans is loaded with `next/font` and exposed as `--font-display`. SF Pro and S
 ## Usage
 
 ```tsx
-<h1 className="font-display text-4xl font-medium tracking-[-0.04em]">Foundations</h1>
+<h1 className="font-display text-4xl tracking-[-0.04em]">Foundations</h1>
 <p className="text-base leading-7 text-muted-foreground">Supporting copy.</p>
 <code className="font-mono text-[13px] tabular-nums">96.8%</code>
 ```
 
-- Do keep display type at weight 500 with tight tracking.
+- Do keep display type at its native weight 400 with tight tracking.
 - Do use `tabular-nums` anywhere numbers line up: tables, stats, charts.
 - Don't use the display face below 30px or for UI labels.
 - Don't use more than two weights in one view.
