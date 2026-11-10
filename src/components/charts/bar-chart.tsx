@@ -385,9 +385,17 @@ const ChartCore = memo(function ChartCore({
     return () => clearTimeout(timer);
   }, [animationDuration, revealSignature, status]);
 
+  // Bars have no exit or grid-tween phases: they rest on the skeleton while
+  // loading, then grow in.
+  let barPhase: ChartPhase = "revealing";
+  if (status === "loading") {
+    barPhase = "loading";
+  } else if (isLoaded) {
+    barPhase = "ready";
+  }
   useEffect(() => {
-    onPhaseChange?.(isLoaded ? "ready" : "revealing");
-  }, [isLoaded, onPhaseChange]);
+    onPhaseChange?.(barPhase);
+  }, [barPhase, onPhaseChange]);
 
   // Mouse move handler
   const handleMouseMove = useCallback(

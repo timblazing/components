@@ -3,8 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   type ChartPhase,
+  type ChartPhaseEvent,
   type ChartStatus,
   resolveRestingChartPhase,
+  transitionChartPhase,
 } from "./chart-phase";
 
 export interface UseChartPhaseOrchestratorOptions {
@@ -41,7 +43,11 @@ export function useChartPhaseOrchestrator({
   const phaseRef = useRef(chartPhase);
   phaseRef.current = chartPhase;
 
-  // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: status transition branches for animation durations
+  /** Every phase change goes through the transition table in chart-phase.ts. */
+  const dispatch = useCallback((event: ChartPhaseEvent) => {
+    setChartPhase((phase) => transitionChartPhase(phase, event));
+  }, []);
+
   useEffect(() => {
     const prevStatus = prevStatusRef.current;
     if (prevStatus === chartStatus) {
@@ -49,38 +55,21 @@ export function useChartPhaseOrchestrator({
     }
     prevStatusRef.current = chartStatus;
 
-    if (chartStatus === "ready" && prevStatus === "loading") {
-      setIsLoaded(false);
-      if (animationDuration <= 0) {
-        if (yDomainTweenDuration <= 0) {
-          setPlotData(targetData);
-          setChartPhase("revealing");
-        } else {
-          setChartPhase("gridTweenReady");
-        }
-      } else {
-        setChartPhase("exiting");
-      }
-      return;
+    const animate = animationDuration > 0;
+    const tweenYDomain = yDomainTweenDuration > 0;
+    setIsLoaded(false);
+    if (!(animate || tweenYDomain)) {
+      // Nothing to animate: swap the data in the same render as the phase.
+      setPlotData(chartStatus === "ready" ? targetData : skeletonData);
     }
-
-    if (chartStatus === "loading" && prevStatus === "ready") {
-      setIsLoaded(false);
-      if (animationDuration <= 0) {
-        if (yDomainTweenDuration <= 0) {
-          setPlotData(skeletonData);
-          setChartPhase("loading");
-        } else {
-          setChartPhase("gridTweenLoading");
-        }
-      } else {
-        setConcealEpoch((epoch) => epoch + 1);
-        setChartPhase("exitingReady");
-      }
+    if (chartStatus === "loading" && animate) {
+      setConcealEpoch((epoch) => epoch + 1);
     }
+    dispatch({ type: "statusChanged", status: chartStatus, animate, tweenYDomain });
   }, [
     animationDuration,
     chartStatus,
+    dispatch,
     skeletonData,
     targetData,
     yDomainTweenDuration,
@@ -98,9 +87,9 @@ export function useChartPhaseOrchestrator({
       return;
     }
 
-    setChartPhase("revealing");
+    dispatch({ type: "enterReveal" });
     setIsLoaded(false);
-  }, [animationDuration, chartStatus, revealSignature, skipEnterReveal]);
+  }, [animationDuration, chartStatus, dispatch, revealSignature, skipEnterReveal]);
 
   useEffect(() => {
     switch (chartPhase) {
@@ -126,30 +115,18 @@ export function useChartPhaseOrchestrator({
 
   /** Loading pulse exit finished — tween grid to ready spacing next. */
   const notifyLoadingPulseComplete = useCallback(() => {
-    if (phaseRef.current !== "exiting") {
-      return;
-    }
-    setChartPhase("gridTweenReady");
-  }, []);
+    dispatch({ type: "loadingPulseComplete" });
+  }, [dispatch]);
 
   /** Ready series conceal finished — tween grid to loading spacing next. */
   const notifyRevealConcealComplete = useCallback(() => {
-    if (phaseRef.current !== "exitingReady") {
-      return;
-    }
-    setChartPhase("gridTweenLoading");
-  }, []);
+    dispatch({ type: "revealConcealComplete" });
+  }, [dispatch]);
 
   /** Grid tween finished — enter the next resting phase. */
   const notifyYDomainTweenComplete = useCallback(() => {
-    if (phaseRef.current === "gridTweenLoading") {
-      setChartPhase("loading");
-      return;
-    }
-    if (phaseRef.current === "gridTweenReady") {
-      setChartPhase("revealing");
-    }
-  }, []);
+    dispatch({ type: "yDomainTweenComplete" });
+  }, [dispatch]);
 
   useEffect(() => {
     if (chartPhase !== "revealing") {
@@ -157,18 +134,18 @@ export function useChartPhaseOrchestrator({
     }
 
     setRevealEpoch((epoch) => epoch + 1);
-    if (animationDuration <= 0) {
-      setChartPhase("ready");
+    const finishReveal = () => {
+      dispatch({ type: "revealComplete" });
       setIsLoaded(true);
+    };
+    if (animationDuration <= 0) {
+      finishReveal();
       return;
     }
 
-    const timer = window.setTimeout(() => {
-      setChartPhase("ready");
-      setIsLoaded(true);
-    }, animationDuration);
+    const timer = window.setTimeout(finishReveal, animationDuration);
     return () => window.clearTimeout(timer);
-  }, [animationDuration, chartPhase]);
+  }, [animationDuration, chartPhase, dispatch]);
 
   return {
     chartPhase,
