@@ -1,0 +1,60 @@
+---
+title: Reusable patterns
+description: Choose a pattern by its job, then account for its data, states, keyboard and narrow-screen behavior.
+---
+
+Start with the destination project's rules and tokens. This catalog's existing [shadcn/Base UI components](/components/shadcn) are the default here; a consumer such as proj keeps its own coss wrappers. Adapt the composition rather than copying an entire block's dependencies or demo content.
+
+## Find and reuse
+
+Agents can read [/llms.txt](/llms.txt) for the index, [/llms-full.txt](/llms-full.txt) for full content, or an individual page under `/llms.mdx/`. Choose the pattern below, read its component references, and name the states the task changes. Inspect a relevant existing block before inventing a screen; use the project's chosen external catalog when this one has a gap.
+
+| Pattern | Use it for | Starting points | Status |
+| --- | --- | --- | --- |
+| Actionable rows | A person choosing or opening an item | `src/components/ui/item.tsx`, [tables](/blocks) | Established Base UI/shadcn foundation |
+| Editable form | A person entering or changing values | `src/components/ui/field.tsx`, `input.tsx`, `button.tsx` | Established Base UI/shadcn foundation |
+| Dialog or sheet | A focused decision or temporary detail | `src/components/ui/dialog.tsx`, `sheet.tsx` | Established Base UI/shadcn foundation |
+| Formatting toggles | Independent on/off settings in a compact group | [UI SDK pilot](/components/ui-sdk-pilot) | Experimental; evaluate before reuse |
+
+## Actionable rows
+
+Give the title the space and let secondary metadata yield first. Use one obvious primary target and separately named secondary actions, such as “Actions for Deployment failed”, rather than ambiguous repeated “More” buttons. Choose links for navigation and buttons for actions. Preserve the consumer's existing selection and hover styles.
+
+- **Populated:** a title such as “Deploy dashboard”, its real status, and secondary metadata. Key changing rows by their stable IDs.
+- **Loading:** retain the list footprint, mark its region busy, and keep placeholder shapes out of the accessible reading order.
+- **Empty:** explain the actual state (“No deployments yet”) and provide a next action only when the product supports it.
+- **Error:** say what failed and provide the actual recovery path. Keep already loaded rows if the error was only a refresh failure.
+- **Long content:** allow the title to wrap or truncate with an accessible full name. A long repository name must not push the action outside a phone viewport.
+
+Tab reaches each actionable control; Enter follows a link or activates a button. A menu's ordinary arrow/Escape behavior belongs to its primitive. When deleting or reordering removes a focused row, return focus to a surviving nearby control. Check a narrow viewport and large text with both short and long titles; a jsdom test cannot prove overflow or visible focus.
+
+## Editable form
+
+Use a visible label and associate help/error text with its field. A placeholder is an example, such as `https://example.com`, rather than the field's only name. Keep entered text when saving fails.
+
+| State | Concrete behavior |
+| --- | --- |
+| Initial | The saved values are present and controls have stable accessible names. |
+| Invalid | An empty required name shows a field error, sets `aria-invalid`, and describes the error through `aria-describedby`. |
+| Saving | Show progress on the submit control and prevent duplicate submissions. State why any other control is unavailable. |
+| Failed | Announce “Could not save changes” with the real reason; keep the draft and allow an explicit retry. |
+| Saved | Confirm completion without changing the submit button's accessible name unnecessarily. |
+| Unavailable | Disable the relevant control and associate the explanation; preserve readable values. |
+
+Stack fields on narrow screens. Long help and error text should wrap. Test empty submission, correction, pending duplicate submission, failure with retained values, and success through the rendered form. Test Enter submission and ordinary Tab order; compare the visual result separately.
+
+## Dialog or sheet
+
+Use the destination project's wrapper so modality, dismissal and responsive presentation remain consistent. A dialog has a title and a named close/cancel action. Keep critical actions explicit: “Delete group” describes the consequence more clearly than “OK”.
+
+- Open from its real trigger and check that focus enters the intended control.
+- Cancel and Escape dismiss without invoking the mutation; closing restores focus to a surviving trigger.
+- Confirm once; while pending, prevent a second request. On failure, announce the error and retain the information needed to retry.
+- With a long title, body or validation error, keep the actions reachable at phone widths and large text. Let the content scroll where needed.
+- A modal contains focus; a deliberately non-modal detail sheet follows the consumer's documented focus policy instead.
+
+A control test proves callbacks, focus and accessible names in that DOM environment. Real-browser checks are still needed for portals, overlays, scrolling, touch, contrast and focus visibility. Honor each repo's authorization rules and record unperformed checks explicitly.
+
+## Provenance and promotion
+
+These recipes describe this catalog's existing Base UI/shadcn foundation and local composition guidance. Component source is in `src/components/ui/`; library credit and canonical upstream references are on [shadcn/ui](/components/shadcn). Experiments carry their own version and evidence. Promote an experiment only after its benefit, interaction checks, browser evidence and dependency cost justify it for the consuming project.

@@ -1,6 +1,7 @@
 // Libraries that components, blocks, and charts come from. Pages credit them
 // through the `sources` frontmatter field.
 export const libraries = {
+  'ui-sdk': { name: 'UI SDK (experimental)', url: 'https://ui-sdk.dev' },
   shadcn: { name: 'shadcn/ui', url: 'https://ui.shadcn.com' },
   bklit: { name: 'Bklit UI', url: 'https://bklit.com' },
   'blocks-so': { name: 'blocks.so', url: 'https://blocks.so' },

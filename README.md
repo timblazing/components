@@ -23,6 +23,7 @@ bun install
 bun run dev        # http://localhost:3000
 bun run build      # static export to out/
 bun run types:check
+bun run test       # focused interaction and hydration checks
 ```
 
 ## Structure
@@ -49,3 +50,9 @@ The site is a static export (`output: 'export'`) hosted on Cloudflare Pages at h
 | Output directory | `out` |
 
 `public/_headers` sets long-lived caching for `/_next/static/*`. `NEXT_PUBLIC_SITE_URL` overrides the canonical URL (defaults to `https://components.blasingame.dev`). Preview the export locally with `bun run build && bun run start`.
+
+## Frontend patterns and experiments
+
+[Reusable patterns](content/docs/foundations/patterns.mdx) describes row, form and dialog states and interaction expectations. The isolated [UI SDK pilot](content/docs/components/ui-sdk-pilot.mdx) is experimental; Base UI remains the default. Both are included by the existing Markdown and `llms.txt` endpoints.
+
+Run `bun run test`, `bun run types:check`, `bun run lint` and `bun run build` before publishing a change. Automated DOM checks do not prove visual layout, contrast or touch behavior; record browser evidence separately.
