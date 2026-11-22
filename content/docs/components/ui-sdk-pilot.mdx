@@ -1,0 +1,35 @@
+---
+title: UI SDK formatting pilot
+description: An isolated experimental toggle group using the existing theme; Base UI remains the default.
+sources:
+  - library: ui-sdk
+    url: https://github.com/vercel-labs/ui
+---
+
+**Experimental.** This page trials UI SDK's interaction behavior using the catalog's semantic tokens. Existing components continue to use Base UI. The example changes local selection only and introduces no agent bridge or external actions.
+
+<ComponentPreview name="ui-sdk-formatting" />
+
+## What to try
+
+Tab into the group, then use Left/Right to move focus and Space or Enter to toggle an option. Bold starts selected. Multiple selections are allowed. Underline stays discoverable with the arrows, announces why it is unavailable, and ignores activation. Names stay the same when selection changes.
+
+The group wraps at narrow widths and keeps a minimum 44px button height. These are implementation choices awaiting browser inspection, not evidence that every viewport or contrast check passed.
+
+## Reuse decision
+
+For ordinary toggle groups, prefer the existing `src/components/ui/toggle-group.tsx` on Base UI. Both approaches supply grouping, selection and keyboard behavior. The pilot shows how UI SDK can provide these behaviors independently, but does not demonstrate enough benefit to replace an existing primitive library.
+
+Keep an experimental widget self-contained. Nesting a second behavior implementation inside an existing toggle or popup gives both systems ownership of focus and selection. A future custom interaction may justify another evaluation.
+
+## Version and source
+
+`@ui-sdk/core` and `@ui-sdk/react` are pinned to `0.1.0-beta.14` (Apache-2.0). The [upstream snapshot](https://github.com/vercel-labs/ui/tree/8060d16d7a9ab3fc79fee25764607344df078c36) declares that version. UI SDK is beta; updates need a review and a rerun of the checks. Follow the installed package's `docs/components/toggle.md` and `docs/server-rendering.md` for the API used here.
+
+The source tab contains the complete local example. Its structure follows the upstream Toggle documentation; typography, spacing, state colors and focus-ring classes use this catalog's tokens. No upstream `web.css` theme is imported.
+
+## Evidence and limits
+
+The interaction suite in `tests/ui-sdk-formatting.test.tsx` checks stable names, initial and multiple selection, arrow/Space behavior, discoverable disabled controls that refuse activation, RTL navigation, and server markup hydrating without recoverable errors in jsdom.
+
+The production static build and typecheck also exercise the Next.js client boundary. jsdom hydration is not browser hydration evidence. Browser screenshots, actual contrast, visible focus, large-text overflow, touch behavior and incremental production client-JavaScript cost remain unverified. Do not treat this experiment as production acceptance until the relevant checks are performed in an authorized browser session.

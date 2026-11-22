@@ -3,5 +3,10 @@
   "description": "Custom and library components",
   "icon": "Component",
   "root": true,
-  "pages": ["index", "---Libraries---", "shadcn"]
+  "pages": [
+    "index",
+    "ui-sdk-pilot",
+    "---Libraries---",
+    "shadcn"
+  ]
 }
