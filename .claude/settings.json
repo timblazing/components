@@ -15,7 +15,8 @@
       "Bash(gh pr checks:*)",
       "Bash(bun install:*)",
       "Bash(bun run build:*)",
-      "Bash(bun run lint:*)"
+      "Bash(bun run lint:*)",
+      "Bash(bun run test:*)"
     ]
   }
 }
