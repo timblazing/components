@@ -51,6 +51,14 @@ The site is a static export (`output: 'export'`) hosted on Cloudflare Pages at h
 
 `public/_headers` sets long-lived caching for `/_next/static/*`. `NEXT_PUBLIC_SITE_URL` overrides the canonical URL (defaults to `https://components.blasingame.dev`). Preview the export locally with `bun run build && bun run start`.
 
+## Security maintenance
+
+Keep `next` and `eslint-config-next` on the same reviewed patch and commit `bun.lock` with them. The [November 2026 security release](https://nextjs.org/blog/november-2026-security-release) fixed seven advisories in 16.4.5; the [16.4.6 release](https://github.com/vercel/next.js/releases/tag/v16.4.6) adds patch fixes in the same minor.
+
+Production serves the static `out/` directory on Cloudflare Pages, with no Next.js server, Edge runtime or built-in image optimizer deployed. The listed server-runtime attack paths are therefore not deployed by this configuration; this is not a reason to retain affected build/development dependencies. Local `next dev` still runs a Next.js server; keep that toolchain patched too. Recheck applicability if the hosting mode changes.
+
+Next.js's agent upgrade reminder can allow the same command to pass on retry without updating a package. Verify the resolved version and current advisory data as well as the tests, clean typecheck, lint and static build; a passing retry alone is not remediation. Keep update checks enabled.
+
 ## Frontend patterns and experiments
 
 [Reusable patterns](content/docs/foundations/patterns.mdx) describes row, form and dialog states and interaction expectations. The isolated [UI SDK pilot](content/docs/components/ui-sdk-pilot.mdx) is experimental; Base UI remains the default. Both are included by the existing Markdown and `llms.txt` endpoints.
