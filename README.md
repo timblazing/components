@@ -42,6 +42,8 @@ Use a preview in MDX with `<ComponentPreview name="chart-area-default" />` or `<
 
 ## Deploy
 
+Temporary revert pilot: `next.config.mjs` intentionally rejects Cloudflare Pages builds on `main` so proj can prove it opens a protected revert PR after an auto-merge. CI, local and preview builds are unaffected. The last successful production deployment stays live. Remove the guard and this paragraph after verifying the revert PR; do not change the Cloudflare build settings.
+
 The site is a static export (`output: 'export'`) hosted on Cloudflare Pages at https://components.blasingame.dev. Pages is connected to this repo and builds every push to `main`:
 
 | Setting | Value |
